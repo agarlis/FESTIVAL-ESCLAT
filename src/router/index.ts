@@ -5,6 +5,7 @@ import Artistas from "@/pages/artistas/Artistas.vue";
 import Programa from "@/pages/programa/Programa.vue";
 import Entradas from "@/pages/entradas/Entradas.vue";
 import Info from "@/pages/info/Info.vue";
+import Merchandising from "@/pages/merchandising/Merchandising.vue";
 
 import AvisoLegal from "@/pages/legal/AvisoLegal.vue";
 import Cookies from "@/pages/legal/Cookies.vue";
@@ -33,6 +34,11 @@ export const router = createRouter({
       path: "/entradas",
       name: "entradas",
       component: Entradas,
+    },
+    {
+      path: "/merchandising",
+      name: "merchandising",
+      component: Merchandising,
     },
     {
       path: "/info",

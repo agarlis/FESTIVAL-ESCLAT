@@ -1,20 +1,64 @@
+import { createRouter, createWebHistory } from "vue-router";
+
 import Home from "@/pages/home/Home.vue";
-import { createRouter, createWebHashHistory } from "vue-router";
+import Artistas from "@/pages/artistas/Artistas.vue";
+import Programa from "@/pages/programa/Programa.vue";
+import Entradas from "@/pages/entradas/Entradas.vue";
+import Info from "@/pages/info/Info.vue";
 
-
+import AvisoLegal from "@/pages/legal/AvisoLegal.vue";
+import Cookies from "@/pages/legal/Cookies.vue";
+import ProteccionDatos from "@/pages/legal/ProteccionDatos.vue";
 
 export const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
 
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: "/",
+      name: "home",
+      component: Home,
     },
     {
-      path: '/:patchMatch(.*)',
-      redirect: '/'
-    }
-  ]
-})
+      path: "/artistas",
+      name: "artistas",
+      component: Artistas,
+    },
+    {
+      path: "/programa",
+      name: "programa",
+      component: Programa,
+    },
+    {
+      path: "/entradas",
+      name: "entradas",
+      component: Entradas,
+    },
+    {
+      path: "/info",
+      name: "info",
+      component: Info,
+    },
+    {
+      path: "/aviso-legal",
+      name: "aviso-legal",
+      component: AvisoLegal,
+    },
+    {
+      path: "/cookies",
+      name: "cookies",
+      component: Cookies,
+    },
+    {
+      path: "/proteccion-datos",
+      name: "proteccion-datos",
+      component: ProteccionDatos,
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: "/",
+    },
+  ],
+});
+
+export default router;

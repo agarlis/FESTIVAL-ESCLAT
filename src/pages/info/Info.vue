@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen p-10">
+  <div>
     <h1>Información</h1>
   </div>
 </template>

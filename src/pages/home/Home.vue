@@ -1,15 +1,5 @@
-<script lang="ts" setup>
-
-
-</script>
-
 <template>
-
-<h1 class="text-3xl text-red-500">Proyecto Transversal</h1>
-
-
+  <div>
+    <h1>Home</h1>
+  </div>
 </template>
-
-<style scoped>
-
-</style>

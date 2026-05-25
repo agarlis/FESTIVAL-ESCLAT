@@ -5,15 +5,15 @@
 
         <div class="flex justify-center gap-12 uppercase text-sm">
 
-            <RouterLink to="/entradas">Entradas</RouterLink>
+            <RouterLink to="/entradas" class="hover:underline">Entradas</RouterLink>
 
-            <RouterLink to="/artistas">Artistas</RouterLink>
+            <RouterLink to="/artistas" class="hover:underline">Artistas</RouterLink>
 
-            <RouterLink to="/programa">Programa</RouterLink>
+            <RouterLink to="/programa" class="hover:underline">Programa</RouterLink>
 
-            <RouterLink to="/merchandising">Merchandising</RouterLink>
+            <RouterLink to="/merchandising" class="hover:underline">Merchandising</RouterLink>
 
-            <RouterLink to="/info">Info</RouterLink>
+            <RouterLink to="/info" class="hover:underline">Info</RouterLink>
 
         </div>
 

@@ -8,7 +8,7 @@ import {
 </script>
 
 <template>
-<main class="bg-white text-black px-8 py-8">
+<main class="bg-white text-black px-8">
 
     <section class="max-w-6xl mx-auto">
 

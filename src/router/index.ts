@@ -6,6 +6,9 @@ import Programa from "@/pages/programa/Programa.vue";
 import Entradas from "@/pages/entradas/Entradas.vue";
 import Info from "@/pages/info/Info.vue";
 import Merchandising from "@/pages/merchandising/Merchandising.vue";
+import Producto from "@/pages/producto/Producto.vue";
+import Carrito from '@/pages/carrito/Carrito.vue'
+import Checkout from '@/pages/checkout/Checkout.vue'
 
 import AvisoLegal from "@/pages/legal/AvisoLegal.vue";
 import Cookies from "@/pages/legal/Cookies.vue";
@@ -36,10 +39,25 @@ export const router = createRouter({
       component: Entradas,
     },
     {
-      path: "/merchandising",
-      name: "merchandising",
-      component: Merchandising,
+    path: '/merchandising',
+    name: 'merchandising',
+    component: Merchandising
     },
+    {
+      path: '/producto/:id',
+      name: 'producto',
+      component: Producto
+    },
+    {
+    path: '/carrito',
+    name: 'carrito',
+    component: Carrito
+  },
+  {
+    path: '/checkout',
+    name: 'checkout',
+    component: Checkout
+  },
     {
       path: "/info",
       name: "info",

@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import TarjetaArtista from '@/components/artistas/TarjetaArtista.vue'
 import Pagination from '@/components/ui/pagination'
 import { artistas } from '@/components/data/artistas'
+import { t } from '@/components/data/idiomas'
 
 const perPage = 6
 const currentPage = ref(1)
@@ -19,7 +20,7 @@ const artistasPaginados = computed(() => {
 <template>
   <section class="px-10 text-center pb-16">
     <h1 class="text-5xl font-bold py-8">
-      ARTISTAS
+      {{ t('artistas.titulo') }}
     </h1>
 
     <div class="grid grid-cols-3 gap-8">

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import TarjetaProducto from '@/components/merchandising/TarjetaProducto.vue'
 import { productos } from '@/components/data/merchandising'
+import { t } from '@/components/data/idiomas'
 </script>
 
 <template>
@@ -9,7 +10,7 @@ import { productos } from '@/components/data/merchandising'
     <section class="max-w-7xl mx-auto">
 
       <h1 class="text-5xl font-bold text-center py-8">
-        MERCHANDISING
+        {{ t('merchandising.titulo') }}
       </h1>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">

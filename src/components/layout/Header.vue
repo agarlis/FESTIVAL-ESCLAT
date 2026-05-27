@@ -8,6 +8,7 @@ import {
   Music2,
   ShoppingBag
 } from 'lucide-vue-next'
+import { cambiarIdioma, idiomaActivo, idiomas, t } from '@/components/data/idiomas'
 
 const route = useRoute()
 
@@ -63,9 +64,17 @@ const mostrarCarrito = computed(() => {
 
         <!-- IDIOMAS -->
         <div class="flex items-center gap-4 text-sm uppercase tracking-wide">
-          <button>VAL</button>
-          <button>CAST</button>
-          <button>ENG</button>
+          <button
+            v-for="idioma in idiomas"
+            :key="idioma.codigo"
+            type="button"
+            :aria-label="`${t('comun.cambiarIdioma')} ${idioma.nombre}`"
+            :class="idiomaActivo === idioma.codigo ? 'font-black underline' : 'hover:opacity-60'"
+            class="transition"
+            @click="cambiarIdioma(idioma.codigo)"
+          >
+            {{ idioma.etiqueta }}
+          </button>
         </div>
 
         <!-- CARRITO -->

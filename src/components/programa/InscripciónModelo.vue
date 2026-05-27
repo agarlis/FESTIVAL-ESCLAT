@@ -11,6 +11,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { useRouter } from 'vue-router'
+import { t, textoEvento } from '@/components/data/idiomas'
 
 defineProps({
   abierto: Boolean,
@@ -35,23 +36,23 @@ const confirmarInscripcion = () => {
 
       <DialogHeader>
         <DialogTitle class="text-4xl font-black uppercase">
-          Inscripción
+          {{ t('programa.inscripcion') }}
         </DialogTitle>
 
         <DialogDescription class="text-black italic">
-          {{ evento?.titulo }} · {{ evento?.dia }}
+          {{ evento ? `${textoEvento(evento, 'titulo')} · ${textoEvento(evento, 'dia')}` : '' }}
         </DialogDescription>
       </DialogHeader>
 
       <div class="space-y-6 mt-4 ">
 
         <div class="space-y-2">
-          <Label>Nombre completo</Label>
-          <Input class="italic font-extralight rounded-none border-black" placeholder="Nombre y apellido" />
+          <Label>{{ t('programa.nombreCompleto') }}</Label>
+          <Input class="italic font-extralight rounded-none border-black" :placeholder="t('programa.nombrePlaceholder')" />
         </div>
 
         <div class="space-y-2">
-          <Label>Correo electrónico</Label>
+          <Label>{{ t('programa.correo') }}</Label>
           <Input class="italic font-extralight rounded-none border-black"
             type="email"
             placeholder="correo@email.com"
@@ -62,7 +63,7 @@ const confirmarInscripcion = () => {
           class="w-full border-none rounded-none bg-black text-white hover:bg-black/80 uppercase font-bold"
           @click="confirmarInscripcion"
         >
-          Confirmar inscripción
+          {{ t('programa.confirmar') }}
         </Button>
 
       </div>

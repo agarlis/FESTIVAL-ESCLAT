@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
+import { t } from '@/components/data/idiomas'
 
 const props = defineProps({
   producto: {
@@ -25,20 +26,20 @@ const props = defineProps({
 
       <img
         :src="props.producto.imagen"
-        :alt="props.producto.nombre"
+        :alt="t(`merchandising.productos.${props.producto.id}`)"
         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
       />
 
       <img
         :src="props.producto.imagenHover ?? props.producto.imagen"
-        :alt="props.producto.nombre"
+        :alt="t(`merchandising.productos.${props.producto.id}`)"
         class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
       />
 
     </div>
 
     <h3 class="text-xl font-black uppercase transition-all group-hover:underline">
-      {{ props.producto.nombre }}
+      {{ t(`merchandising.productos.${props.producto.id}`) }}
     </h3>
 
     <p class="italic text-m font-light mt-2">

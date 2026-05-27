@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { entradas, type Entrada } from '@/components/data/entradas'
+import { t } from '@/components/data/idiomas'
 
 const router = useRouter()
 
@@ -91,7 +92,7 @@ const comprarEntradaAccesible = () => {
     <!-- TITULO -->
     <section class="text-center">
       <h1 class="text-5xl font-bold">
-        ENTRADAS
+        {{ t('entradas.titulo') }}
       </h1>
     </section>
 
@@ -105,15 +106,15 @@ const comprarEntradaAccesible = () => {
       >
         <div>
           <p class="italic font-light text-sm">
-            {{ entrada.tipo }}
+            {{ t(`entradas.tarjetas.${entrada.id}.tipo`) }}
           </p>
 
           <h2 class="text-4xl font-black uppercase mt-4">
-            {{ entrada.titulo }}
+            {{ t(`entradas.tarjetas.${entrada.id}.titulo`) }}
           </h2>
 
           <p class="mt-6 text-base">
-            {{ entrada.descripcion }}
+            {{ t(`entradas.tarjetas.${entrada.id}.descripcion`) }}
           </p>
         </div>
 
@@ -127,7 +128,7 @@ const comprarEntradaAccesible = () => {
             @click="comprarEntrada(entrada)"
             class="w-full border border-white py-4 uppercase font-bold hover:bg-white hover:text-black transition"
           >
-            Comprar entrada
+            {{ t('entradas.comprar') }}
           </button>
         </div>
       </article>
@@ -136,21 +137,21 @@ const comprarEntradaAccesible = () => {
       <article class="aspect-square bg-black text-white p-8 flex flex-col justify-between hover:-translate-y-2 transition">
         <div>
           <p class="italic font-light text-sm">
-            Acceso inclusivo ♿
+            {{ t('entradas.accesibleTipo') }}
           </p>
 
           <h2 class="text-4xl font-black uppercase mt-4">
-            Accesible
+            {{ t('entradas.accesibleTitulo') }}
           </h2>
 
           <p class="mt-6 text-base leading-relaxed">
-            50% de descuento con acreditación válida para personas con discapacidad.
+            {{ t('entradas.accesibleDescripcion') }}
           </p>
         </div>
 
         <div>
           <p class="text-4xl font-black mb-4">
-            -50% DE CUALQUIER ENTRADA
+            {{ t('entradas.accesiblePrecio') }}
           </p>
 
           <select
@@ -162,7 +163,7 @@ const comprarEntradaAccesible = () => {
               :key="`accesible-${entrada.id}`"
               :value="entrada.id"
             >
-              {{ entrada.titulo }} - {{ formatearPrecio(parsePrecio(entrada.precio) / 2) }}
+              {{ t(`entradas.tarjetas.${entrada.id}.titulo`) }} - {{ formatearPrecio(parsePrecio(entrada.precio) / 2) }}
             </option>
           </select>
 
@@ -171,7 +172,7 @@ const comprarEntradaAccesible = () => {
             @click="comprarEntradaAccesible"
             class="w-full border border-white py-4 uppercase font-bold hover:bg-white hover:text-black transition rounded-none"
           >
-            Comprar entrada
+            {{ t('entradas.comprar') }}
           </button>
         </div>
       </article>
@@ -182,34 +183,33 @@ const comprarEntradaAccesible = () => {
     <section class="mt-24 border-t border-black pt-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
       <div>
         <p class="italic font-light text-sm">
-          Reservas gratuitas
+          {{ t('entradas.reservas') }}
         </p>
 
         <h2 class="text-4xl font-bold uppercase mt-3">
-          Actividades con inscripción
+          {{ t('entradas.actividadesTitulo') }}
         </h2>
 
         <p class="mt-6 text-lg leading-relaxed">
-          Algunos talleres y charlas tienen aforo limitado y requieren inscripción previa gratuita.
-          Puedes reservar tu plaza directamente desde la página de programa.
+          {{ t('entradas.actividadesDescripcion') }}
         </p>
 
         <RouterLink
           to="/programa?filtro=taller"
           class="inline-block mt-8 border border-black px-8 py-4 uppercase font-bold hover:bg-black hover:text-white transition"
         >
-          Ver actividades
+          {{ t('entradas.verActividades') }}
         </RouterLink>
       </div>
 
       <div class="border border-black p-8 flex flex-col justify-between">
         <div>
           <p class="italic font-light text-sm">
-            Dudas y accesibilidad
+            {{ t('entradas.contactoIntro') }}
           </p>
 
           <h2 class="text-4xl font-bold uppercase mt-3">
-            Contacto
+            {{ t('comun.contacto') }}
           </h2>
         </div>
 
@@ -230,7 +230,7 @@ const comprarEntradaAccesible = () => {
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 py-8">
         <div>
           <p class="italic font-light text-sm">
-            Ubicación
+            {{ t('comun.ubicacion') }}
           </p>
 
           <h2 class="text-4xl font-bold uppercase mt-3">
@@ -238,12 +238,12 @@ const comprarEntradaAccesible = () => {
           </h2>
 
           <p class="mt-4 text-lg">
-            Carrer de Joan Verdeguer, 16, València
+            {{ t('comun.direccionNaves') }}
           </p>
         </div>
       </div>
       <iframe
-        title="Mapa de Las Naves Valencia"
+        :title="t('entradas.mapaTitulo')"
         src="https://maps.google.com/maps?q=Las%20Naves%20Valencia&t=&z=15&ie=UTF8&iwloc=&output=embed"
         class="w-full h-130 "
         loading="lazy"

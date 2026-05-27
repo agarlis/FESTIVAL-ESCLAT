@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t, textoEvento } from '@/components/data/idiomas'
+
 const props = defineProps<{
   evento: {
     id: number
@@ -36,15 +38,15 @@ const handleInscribirse = (event: MouseEvent) => {
       </p>
 
       <h2 class="text-4xl font-black uppercase mt-4">
-        {{ evento.titulo }}
+        {{ textoEvento(evento, 'titulo') }}
       </h2>
 
       <p class="italic font-extralight mt-2 text-sm">
-        {{ evento.categoria }}
+        {{ textoEvento(evento, 'categoria') }}
       </p>
 
       <p class="mt-6 text-base leading-relaxed">
-        {{ evento.descripcion }}
+        {{ textoEvento(evento, 'descripcion') }}
       </p>
     </div>
 
@@ -54,7 +56,7 @@ const handleInscribirse = (event: MouseEvent) => {
       @click="handleInscribirse"
       class="px-4 py-3 uppercase font-bold transition border border-white text-white hover:bg-white hover:text-black"
     >
-      Inscribirme
+      {{ t('programa.inscribirme') }}
     </button>
 
     <button
@@ -62,7 +64,7 @@ const handleInscribirse = (event: MouseEvent) => {
       type="button"
       class="px-4 py-3 uppercase font-bold transition border border-white text-white hover:bg-white hover:text-black"
     >
-      Ver más
+      {{ t('programa.verMas') }}
     </button>
   </article>
 </template>

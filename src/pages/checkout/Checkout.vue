@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { t } from '@/components/data/idiomas'
 
 const router = useRouter()
 
@@ -67,20 +68,20 @@ const validarFormulario = () => {
   errors.value = {}
 
   const campos = [
-    ['email', 'Correo electrónico'],
-    ['nombre', 'Nombre'],
-    ['apellidos', 'Apellidos'],
-    ['direccion', 'Dirección'],
-    ['codigoPostal', 'Código postal'],
-    ['telefono', 'Teléfono'],
-    ['numeroTarjeta', 'Número de tarjeta'],
+    ['email', t('checkout.email')],
+    ['nombre', t('checkout.nombre')],
+    ['apellidos', t('checkout.apellidos')],
+    ['direccion', t('checkout.direccion')],
+    ['codigoPostal', t('checkout.codigoPostal')],
+    ['telefono', t('checkout.telefono')],
+    ['numeroTarjeta', t('checkout.numeroTarjeta')],
     ['mmAa', 'MM/AA'],
     ['cvv', 'CVV'],
   ]
 
   campos.forEach(([campo, etiqueta]) => {
     if (!form.value[campo as keyof typeof form.value]) {
-      errors.value[campo as string] = `${etiqueta} es obligatorio.`
+      errors.value[campo as string] = `${etiqueta} ${t('checkout.campoObligatorio')}`
     }
   })
 
@@ -109,6 +110,18 @@ const finalizarCompra = () => {
   localStorage.removeItem('carrito')
   router.push('/merchandising')
 }
+
+const nombreItem = (item: any) => {
+  if (item.producto?.imagen) {
+    return t(`merchandising.productos.${item.producto.id}`)
+  }
+
+  const entradaId = item.producto?.id > 100
+    ? item.producto.id - 100
+    : item.producto?.id
+
+  return `${t('comun.entrada')} ${t(`entradas.tarjetas.${entradaId}.titulo`)}`
+}
 </script>
 
 <template>
@@ -120,47 +133,47 @@ const finalizarCompra = () => {
       <div>
 
         <h2 class="text-3xl font-bold mb-10">
-          Contacto
+          {{ t('checkout.contacto') }}
         </h2>
 
         <div class="space-y-4 mb-8">
-          <Input v-model="form.email" placeholder="Correo electrónico" class="italic border border-black rounded-none bg-white h-12" />
+          <Input v-model="form.email" :placeholder="t('checkout.email')" class="italic border border-black rounded-none bg-white h-12" />
           <p v-if="errors.email" class="text-sm text-red-600">
             {{ errors.email }}
           </p>
 
-          <Input v-model="form.nombre" placeholder="Nombre" class="italic border border-black rounded-none bg-white h-12" />
+          <Input v-model="form.nombre" :placeholder="t('checkout.nombre')" class="italic border border-black rounded-none bg-white h-12" />
           <p v-if="errors.nombre" class="text-sm text-red-600">
             {{ errors.nombre }}
           </p>
 
-          <Input v-model="form.apellidos" placeholder="Apellidos" class="italic border border-black rounded-none bg-white h-12" />
+          <Input v-model="form.apellidos" :placeholder="t('checkout.apellidos')" class="italic border border-black rounded-none bg-white h-12" />
           <p v-if="errors.apellidos" class="text-sm text-red-600">
             {{ errors.apellidos }}
           </p>
 
-          <Input v-model="form.direccion" placeholder="Dirección" class="italic border border-black rounded-none bg-white h-12" />
+          <Input v-model="form.direccion" :placeholder="t('checkout.direccion')" class="italic border border-black rounded-none bg-white h-12" />
           <p v-if="errors.direccion" class="text-sm text-red-600">
             {{ errors.direccion }}
           </p>
 
-          <Input v-model="form.codigoPostal" placeholder="Código postal" class="italic border border-black rounded-none bg-white h-12" />
+          <Input v-model="form.codigoPostal" :placeholder="t('checkout.codigoPostal')" class="italic border border-black rounded-none bg-white h-12" />
           <p v-if="errors.codigoPostal" class="text-sm text-red-600">
             {{ errors.codigoPostal }}
           </p>
 
-          <Input v-model="form.telefono" placeholder="Teléfono" class="italic border border-black rounded-none bg-white h-12" />
+          <Input v-model="form.telefono" :placeholder="t('checkout.telefono')" class="italic border border-black rounded-none bg-white h-12" />
           <p v-if="errors.telefono" class="text-sm text-red-600">
             {{ errors.telefono }}
           </p>
         </div>
 
         <h2 class="text-3xl font-bold mb-6">
-          Pago
+          {{ t('checkout.pago') }}
         </h2>
 
         <div class="space-y-4 mb-8">
-          <Input v-model="form.numeroTarjeta" placeholder="Número tarjeta" class="italic border border-black rounded-none bg-white h-12" />
+          <Input v-model="form.numeroTarjeta" :placeholder="t('checkout.numeroTarjeta')" class="italic border border-black rounded-none bg-white h-12" />
           <p v-if="errors.numeroTarjeta" class="text-sm text-red-600">
             {{ errors.numeroTarjeta }}
           </p>
@@ -190,14 +203,14 @@ const finalizarCompra = () => {
           v-if="Object.keys(errors).length"
           class="text-sm text-red-600 mb-4"
         >
-          Rellena todos los campos para continuar con el pago.
+          {{ t('checkout.rellena') }}
         </p>
 
         <Button
           @click="finalizarCompra"
           class="mx-auto rounded-none border border-black bg-white text-black hover:bg-black hover:text-white px-8 py-4 uppercase font-semibold shadow-none"
         >
-          Pagar ahora
+          {{ t('checkout.pagar') }}
         </Button>
 
       </div>
@@ -205,7 +218,7 @@ const finalizarCompra = () => {
       <!-- RESUMEN -->
       <div class="bg-gray-50 p-10 rounded-lg">
         <h2 class="text-3xl font-bold mb-8">
-          Resumen de compra
+          {{ t('checkout.resumen') }}
         </h2>
 
         <div
@@ -213,9 +226,9 @@ const finalizarCompra = () => {
           class="space-y-6"
         >
           <div class="grid grid-cols-[2fr_1fr_1fr] gap-4 text-sm uppercase tracking-wide border-b pb-4">
-            <span>Producto</span>
-            <span class="text-center">Cantidad</span>
-            <span class="text-right">Precio</span>
+            <span>{{ t('comun.producto') }}</span>
+            <span class="text-center">{{ t('comun.cantidad') }}</span>
+            <span class="text-right">{{ t('comun.precio') }}</span>
           </div>
 
           <div
@@ -225,10 +238,10 @@ const finalizarCompra = () => {
           >
             <div>
               <p class="font-semibold uppercase">
-                {{ item.producto?.nombre || 'Producto' }}
+                {{ item.producto ? nombreItem(item) : t('comun.producto') }}
               </p>
               <p v-if="item.talla" class="text-sm text-gray-600 mt-1">
-                Talla: {{ item.talla }}
+                {{ t('comun.talla') }}: {{ item.talla }}
               </p>
             </div>
 
@@ -248,12 +261,12 @@ const finalizarCompra = () => {
 
           <div class="border-t pt-6 mt-6">
             <div class="flex justify-between text-sm uppercase tracking-wide mb-2">
-              <span>Productos</span>
+              <span>{{ t('checkout.productos') }}</span>
               <span>{{ totalItems }}</span>
             </div>
 
             <div class="flex justify-between text-2xl font-bold">
-              <span>Total</span>
+              <span>{{ t('comun.total') }}</span>
               <span>{{ formatearPrecio(totalPrecio) }}</span>
             </div>
           </div>
@@ -263,7 +276,7 @@ const finalizarCompra = () => {
           v-else
           class="text-gray-600"
         >
-          No hay productos en el carrito.
+          {{ t('checkout.carritoVacio') }}
         </div>
       </div>
 

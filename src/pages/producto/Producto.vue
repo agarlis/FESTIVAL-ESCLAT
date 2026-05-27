@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { productos } from '@/components/data/merchandising'
+import { t } from '@/components/data/idiomas'
 
 import {
   Accordion,
@@ -79,7 +80,7 @@ const añadirCarrito = () => {
 
         <img
           :src="imagenSeleccionada"
-          :alt="producto.nombre"
+          :alt="t(`merchandising.productos.${producto.id}`)"
           class="w-full h-175 object-cover"
         />
 
@@ -105,7 +106,7 @@ const añadirCarrito = () => {
       <div>
 
         <h1 class="text-5xl font-black uppercase leading-tight mb-8">
-          {{ producto.nombre }}
+          {{ t(`merchandising.productos.${producto.id}`) }}
         </h1>
 
         <p class="text-3xl italic font-light mb-10">
@@ -117,7 +118,7 @@ const añadirCarrito = () => {
   class="mb-10"
 >
   <p class="uppercase text-sm mb-4">
-    Talla
+    {{ t('merchandising.talla') }}
   </p>
 
   <div class="flex gap-3 flex-wrap">
@@ -142,7 +143,7 @@ const añadirCarrito = () => {
         <!-- CANTIDAD -->
         <div class="mb-10">
           <p class="uppercase text-sm mb-4">
-            Cantidad
+            {{ t('merchandising.cantidad') }}
           </p>
 
           <div class="flex border border-black w-fit">
@@ -173,18 +174,18 @@ const añadirCarrito = () => {
           @click="añadirCarrito"
           class="w-full border border-black py-5 uppercase font-semibold hover:bg-black hover:text-white transition mb-12"
         >
-          Añadir al carrito
+          {{ t('merchandising.anadir') }}
         </button>
 
         <!-- DESCRIPCIÓN -->
         <div class="space-y-6 mb-12 italic text-lg leading-relaxed font-light">
 
           <p>
-            Producto oficial ESCLAT diseñado como edición especial del festival.
+            {{ t('merchandising.descripcion1') }}
           </p>
 
           <p>
-            Una pieza exclusiva pensada para amantes de la música, creatividad y cultura contemporánea.
+            {{ t('merchandising.descripcion2') }}
           </p>
 
         </div>
@@ -198,28 +199,28 @@ const añadirCarrito = () => {
 
           <AccordionItem value="material">
             <AccordionTrigger>
-              Material
+              {{ t('merchandising.material') }}
             </AccordionTrigger>
             <AccordionContent>
-              Materiales premium seleccionados para merchandising oficial ESCLAT.
+              {{ t('merchandising.materialTexto') }}
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="envio">
             <AccordionTrigger>
-              Envío
+              {{ t('merchandising.envio') }}
             </AccordionTrigger>
             <AccordionContent>
-              Entrega estimada entre 3 y 7 días laborables.
+              {{ t('merchandising.envioTexto') }}
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="cuidados">
             <AccordionTrigger>
-              Cuidados
+              {{ t('merchandising.cuidados') }}
             </AccordionTrigger>
             <AccordionContent>
-              Seguir instrucciones específicas según el tipo de producto.
+              {{ t('merchandising.cuidadosTexto') }}
             </AccordionContent>
           </AccordionItem>
 

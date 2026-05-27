@@ -1,3 +1,6 @@
+<script setup lang="ts">
+import { t } from '@/components/data/idiomas'
+</script>
 
 <template>
   <footer class="bg-white text-black px-10 py-8">
@@ -63,28 +66,28 @@
         to="/aviso-legal"
         class="hover:opacity-60 transition"
       >
-        Aviso legal
+        {{ t('footer.avisoLegal') }}
       </RouterLink>
 
       <RouterLink
         to="/proteccion-datos"
         class="hover:opacity-60 transition"
       >
-        Protección de datos
+        {{ t('footer.proteccionDatos') }}
       </RouterLink>
 
       <RouterLink
         to="/cookies"
         class="hover:opacity-60 transition"
       >
-        Política de cookies
+        {{ t('footer.cookies') }}
       </RouterLink>
 
     </div>
 
     <!-- COPYRIGHT -->
     <div class="text-center text-xs opacity-60">
-      © 2026 ESCLAT Festival
+      {{ t('footer.copyright') }}
     </div>
 
   </footer>

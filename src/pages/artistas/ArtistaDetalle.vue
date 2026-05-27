@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import { artistas } from '@/components/data/artistas'
 import { ChevronLeft, ChevronRight, LayoutGrid } from 'lucide-vue-next'
+import { actividadesArtista, t, textoArtista } from '@/components/data/idiomas'
 
 const route = useRoute()
 
@@ -87,21 +88,21 @@ const siguiente = computed(() => {
         </p>
 
         <p class="text-lg font-medium text-black mb-4">
-          {{ artista.disciplina }}
+          {{ textoArtista(artista, 'disciplina') }}
         </p>
 
         <p class="text-lg text-black mb-8">
-          {{ artista.bio }}
+          {{ textoArtista(artista, 'bio') }}
         </p>
 
         <div>
           <h3 class="text-2xl font-black uppercase mb-4">
-            Actividades
+            {{ t('artistas.actividades') }}
           </h3>
 
           <ul class="space-y-2 font-light">
             <li
-              v-for="actividad in artista.actividades"
+              v-for="actividad in actividadesArtista(artista)"
               :key="actividad"
             >
               • {{ actividad }}
@@ -134,7 +135,7 @@ const siguiente = computed(() => {
         width="100%"
         height="600"
         :src="artista.youtubeEmbed"
-        title="YouTube video player"
+        :title="t('artistas.videoYoutube')"
         frameborder="0"
         allowfullscreen
         class="rounded-xl"

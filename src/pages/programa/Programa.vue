@@ -5,6 +5,7 @@ import { RouterLink, useRoute, useRouter } from 'vue-router'
 import InscripcionModal from '@/components/programa/InscripciónModelo.vue'
 import FiltroPrograma from '@/components/programa/FiltroPrograma.vue'
 import TarjetaEvento from '@/components/programa/TarjetaEvento.vue'
+import { t } from '@/components/data/idiomas'
 
 const route = useRoute()
 const router = useRouter()
@@ -81,7 +82,7 @@ const abrirInscripcion = (evento: (typeof eventos)[number]) => {
     <!-- TITULO -->
     <section class="text-center">
       <h1 class="text-5xl font-bold">
-        PROGRAMA
+        {{ t('programa.titulo') }}
       </h1>
     </section>
 
@@ -95,7 +96,7 @@ const abrirInscripcion = (evento: (typeof eventos)[number]) => {
           : 'bg-white text-black'"
         class="px-10 py-4 border border-black font-black uppercase transition hover:bg-black hover:text-white"
       >
-        Todos
+        {{ t('programa.todos') }}
       </button>
 
       <button
@@ -105,7 +106,7 @@ const abrirInscripcion = (evento: (typeof eventos)[number]) => {
           : 'bg-white text-black'"
         class="px-10 py-4 border border-black font-black uppercase transition hover:bg-black hover:text-white"
       >
-        Viernes 23
+        {{ t('programa.viernes') }}
       </button>
 
       <button
@@ -115,7 +116,7 @@ const abrirInscripcion = (evento: (typeof eventos)[number]) => {
           : 'bg-white text-black'"
         class="px-10 py-4 border border-black font-black uppercase transition hover:bg-black hover:text-white"
       >
-        Sábado 24
+        {{ t('programa.sabado') }}
       </button>
 
       <button
@@ -125,7 +126,7 @@ const abrirInscripcion = (evento: (typeof eventos)[number]) => {
           : 'bg-white text-black'"
         class="px-10 py-4 border border-black font-black uppercase transition hover:bg-black hover:text-white"
       >
-        Domingo 25
+        {{ t('programa.domingo') }}
       </button>
 
     </section>

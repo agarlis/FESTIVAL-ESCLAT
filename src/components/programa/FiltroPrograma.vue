@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/components/data/idiomas'
+
 const props = defineProps({
   filtroActivo: { type: String, default: 'todos' }
 })
@@ -19,7 +21,7 @@ const setFiltro = (valor: string) => {
         : 'bg-white text-black'"
       class="px-6 py-3 border border-black font-bold uppercase transition"
     >
-      Todos
+      {{ t('programa.todos') }}
     </button>
 
     <button
@@ -30,7 +32,7 @@ const setFiltro = (valor: string) => {
         : 'bg-white text-black'"
       class="px-6 py-3 border border-black font-bold uppercase transition"
     >
-      Conciertos
+      {{ t('programa.conciertos') }}
     </button>
 
     <button
@@ -41,7 +43,7 @@ const setFiltro = (valor: string) => {
         : 'bg-white text-black'"
       class="px-6 py-3 border border-black font-bold uppercase transition"
     >
-      Talleres
+      {{ t('programa.talleres') }}
     </button>
 
     <button
@@ -52,7 +54,7 @@ const setFiltro = (valor: string) => {
         : 'bg-white text-black'"
       class="px-6 py-3 border border-black font-bold uppercase transition"
     >
-      Charlas
+      {{ t('programa.charlas') }}
     </button>
   </section>
 </template>

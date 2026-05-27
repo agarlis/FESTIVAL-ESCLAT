@@ -4,6 +4,7 @@ import Home from "@/pages/home/Home.vue";
 import Artistas from "@/pages/artistas/Artistas.vue";
 import ArtistaDetalle from '@/pages/artistas/ArtistaDetalle.vue'
 import Programa from "@/pages/programa/Programa.vue";
+import ProgramaDetalle from '@/pages/programa/ProgramaDetalle.vue'
 import Entradas from "@/pages/entradas/Entradas.vue";
 import Info from "@/pages/info/Info.vue";
 import Merchandising from "@/pages/merchandising/Merchandising.vue";
@@ -35,10 +36,16 @@ export const router = createRouter({
   component: ArtistaDetalle,
 },
     {
-      path: "/programa",
-      name: "programa",
-      component: Programa,
-    },
+  path: '/programa',
+  name: 'programa',
+  component: Programa
+},
+
+{
+  path: '/programa/:slug',
+  name: 'programa-detalle',
+  component: ProgramaDetalle
+},
     {
       path: "/entradas",
       name: "entradas",

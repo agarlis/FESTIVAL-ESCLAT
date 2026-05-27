@@ -93,9 +93,17 @@ const eliminarProducto = (index: number) => {
         >
           <div class="flex gap-6 items-center">
             <img
+              v-if="item.producto.imagen"
               :src="item.producto.imagen"
               class="w-28 h-28 object-cover"
             />
+
+            <div
+              v-else
+              class="w-28 h-28 border border-black flex items-center justify-center text-xs uppercase font-bold text-center p-3"
+            >
+              Entrada
+            </div>
 
             <div>
               <h2 class="font-black uppercase">

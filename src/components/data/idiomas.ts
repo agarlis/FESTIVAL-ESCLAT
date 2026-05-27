@@ -269,7 +269,7 @@ export const traducciones = {
       enviar: 'Enviar',
     },
     entradas: {
-      titulo: 'Entradas',
+      titulo: 'ENTRADAS',
       comprar: 'Comprar entrada',
       accesibleTipo: 'Acceso inclusivo ♿',
       accesibleTitulo: 'Accesible',
@@ -290,7 +290,7 @@ export const traducciones = {
       },
     },
     programa: {
-      titulo: 'Programa',
+      titulo: 'PROGRAMA',
       volver: 'Programa',
       todos: 'Todos',
       viernes: 'Viernes 23',
@@ -314,12 +314,12 @@ export const traducciones = {
       confirmar: 'Confirmar inscripción',
     },
     artistas: {
-      titulo: 'Artistas',
+      titulo: 'ARTISTAS',
       actividades: 'Actividades',
       videoYoutube: 'Reproductor de vídeo de YouTube',
     },
     merchandising: {
-      titulo: 'Merchandising',
+      titulo: 'MERCHANDISING',
       talla: 'Talla',
       cantidad: 'Cantidad',
       anadir: 'Añadir al carrito',
@@ -367,7 +367,7 @@ export const traducciones = {
       carritoVacio: 'No hay productos en el carrito.',
     },
     info: {
-      titulo: 'Información',
+      titulo: 'INFORMACIÓN',
       normas: 'Normas',
       normasTexto: 'ESCLAT es un espacio seguro, inclusivo y libre de discriminación. No se tolerarán actitudes machistas, LGTBIfóbicas, racistas o violentas. No está permitido acceder con bebidas del exterior, objetos peligrosos, sustancias ilegales ni materiales que puedan comprometer la seguridad del evento. Respeta al resto de asistentes, artistas y equipo del festival.',
       compra: 'Guía de compra',

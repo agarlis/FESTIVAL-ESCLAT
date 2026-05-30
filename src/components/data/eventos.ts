@@ -1,17 +1,18 @@
-import lapaloma from '@/assets/imagenes/artistas/lapaloma.jpg'
-import shego from '@/assets/imagenes/artistas/shego.jpg'
-import lafumiga from '@/assets/imagenes/artistas/lafumiga.jpg'
-import pogo from '@/assets/imagenes/artistas/pogo.jpg'
-import mori from '@/assets/imagenes/artistas/mori.jpg'
-import carinio from '@/assets/imagenes/artistas/carinio.jpg'
-import blackpanda from '@/assets/imagenes/artistas/blackpanda.jpg'
-import biznaga from '@/assets/imagenes/artistas/biznaga.jpg'
-import barryb from '@/assets/imagenes/artistas/barryb.jpg'
-import fatboyslim from '@/assets/imagenes/artistas/fatboyslim.jpg'
-import neoverbeneo from '@/assets/imagenes/artistas/neoverbeneo.jpg'
-import losplanetas from '@/assets/imagenes/artistas/losplanetas.jpg'
-import niniapolaca from '@/assets/imagenes/artistas/niniapolaca.jpg'
-import drea from '@/assets/imagenes/artistas/drea.jpg'
+import lapaloma from '@/assets/imagenes/artistas/lapaloma.jpeg'
+import shego from '@/assets/imagenes/artistas/shego.jpeg'
+import lafumiga from '@/assets/imagenes/artistas/lafumiga.jpeg'
+import pogo from '@/assets/imagenes/artistas/pogo.jpeg'
+import mori from '@/assets/imagenes/artistas/mori.jpeg'
+import carinio from '@/assets/imagenes/artistas/carinio.jpeg'
+import blackpanda from '@/assets/imagenes/artistas/blackpanda.jpeg'
+import biznaga from '@/assets/imagenes/artistas/biznaga.jpeg'
+import barryb from '@/assets/imagenes/artistas/barryb.jpeg'
+import fatboyslim from '@/assets/imagenes/artistas/fatboyslim.jpeg'
+import neoverbeneo from '@/assets/imagenes/artistas/neoverbeneo.jpeg'
+import losplanetas from '@/assets/imagenes/artistas/losplanetas.jpeg'
+import niniapolaca from '@/assets/imagenes/artistas/niniapolaca.jpeg'
+import drea from '@/assets/imagenes/artistas/drea.jpeg'
+import karavana from '@/assets/imagenes/artistas/karavana.jpeg'
 
 
 export const eventos = [
@@ -286,17 +287,18 @@ export const eventos = [
 
   {
     id: 18,
-    slug: 'artista-desconocido',
-    titulo: 'artista desconocido',
+    slug: 'karavana',
+    titulo: 'Karavana',
     dia: 'Domingo 25',
     diaSlug: 'domingo',
     hora: '17:30',
     espacio: 'Sala XX - XXXX',
     categoria: 'Conciertos',
     categoriaSlug: 'concierto',
-    descripcion: 'Concierto de artista desconocido.',
+    descripcion: 'Concierto grupo Karavana.',
     duracion: '1h',
-    inscripcion: true
+    inscripcion: true,
+    imagen: karavana
   },
 
   {

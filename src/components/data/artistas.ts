@@ -1,18 +1,19 @@
-import barryb from '@/assets/imagenes/artistas/barryb.jpg'
-import biznaga from '@/assets/imagenes/artistas/biznaga.jpg'
-import blackpanda from '@/assets/imagenes/artistas/blackpanda.jpg'
-import carinio from '@/assets/imagenes/artistas/carinio.jpg'
-import drea from '@/assets/imagenes/artistas/drea.jpg'
-import fatboyslim from '@/assets/imagenes/artistas/fatboyslim.jpg'
-import lafumiga from '@/assets/imagenes/artistas/lafumiga.jpg'
-import lapaloma from '@/assets/imagenes/artistas/lapaloma.jpg'
-import losplanetas from '@/assets/imagenes/artistas/losplanetas.jpg'
-import mori from '@/assets/imagenes/artistas/mori.jpg'
-import neoverbeneo from '@/assets/imagenes/artistas/neoverbeneo.jpg'
-import niniapolaca from '@/assets/imagenes/artistas/niniapolaca.jpg'
-import pogo from '@/assets/imagenes/artistas/pogo.jpg'
-import shego from '@/assets/imagenes/artistas/shego.jpg'
-import nose from '@/assets/imagenes/artistas/nose.jpg'
+import barryb from '@/assets/imagenes/artistas/barryb.jpeg'
+import biznaga from '@/assets/imagenes/artistas/biznaga.jpeg'
+import blackpanda from '@/assets/imagenes/artistas/blackpanda.jpeg'
+import carinio from '@/assets/imagenes/artistas/carinio.jpeg'
+import drea from '@/assets/imagenes/artistas/drea.jpeg'
+import fatboyslim from '@/assets/imagenes/artistas/fatboyslim.jpeg'
+import lafumiga from '@/assets/imagenes/artistas/lafumiga.jpeg'
+import lapaloma from '@/assets/imagenes/artistas/lapaloma.jpeg'
+import losplanetas from '@/assets/imagenes/artistas/losplanetas.jpeg'
+import mori from '@/assets/imagenes/artistas/mori.jpeg'
+import neoverbeneo from '@/assets/imagenes/artistas/neoverbeneo.jpeg'
+import niniapolaca from '@/assets/imagenes/artistas/niniapolaca.jpeg'
+import pogo from '@/assets/imagenes/artistas/pogo.jpeg'
+import shego from '@/assets/imagenes/artistas/shego.jpeg'
+import karavana from '@/assets/imagenes/artistas/karavana.jpeg'
+
 
 export const artistas = [
   {
@@ -169,7 +170,7 @@ export const artistas = [
     dia: '25 OCT 2026',
     bio: 'Indie rock madrileño con guitarras potentes, energía en directo y estribillos inolvidables.',
     actividades: ['17:00 - Concierto'],
-    imagen: nose,
+    imagen: karavana,
     spotifyEmbed:
       'https://open.spotify.com/embed/artist/6SShgjYwZQZ8Nx2wo5IKdd?utm_source=generator&theme=0',
     youtubeEmbed:

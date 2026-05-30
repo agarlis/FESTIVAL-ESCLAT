@@ -2,8 +2,10 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import Home from "@/pages/home/Home.vue";
 import Artistas from "@/pages/artistas/Artistas.vue";
+import ArtistasListado from "@/pages/artistas/ArtistasListado.vue";
 import ArtistaDetalle from '@/pages/artistas/ArtistaDetalle.vue'
 import Programa from "@/pages/programa/Programa.vue";
+import ProgramaListado from "@/pages/programa/ProgramaListado.vue";
 import ProgramaDetalle from '@/pages/programa/ProgramaDetalle.vue'
 import Entradas from "@/pages/entradas/Entradas.vue";
 import Info from "@/pages/info/Info.vue";
@@ -15,6 +17,7 @@ import Checkout from '@/pages/checkout/Checkout.vue'
 import AvisoLegal from "@/pages/legal/AvisoLegal.vue";
 import Cookies from "@/pages/legal/Cookies.vue";
 import ProteccionDatos from "@/pages/legal/ProteccionDatos.vue";
+
 
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,26 +31,36 @@ routes: [
 
   {
     path: '/artistas',
-    name: 'artistas',
     component: Artistas,
-  },
-
-  {
-    path: '/artistas/:slug',
-    name: 'artista-detalle',
-    component: ArtistaDetalle,
+    children: [
+      {
+        path: '',
+        name: 'artistas',
+        component: ArtistasListado,
+      },
+      {
+        path: ':slug',
+        name: 'artista-detalle',
+        component: ArtistaDetalle,
+      },
+    ],
   },
 
   {
     path: '/programa',
-    name: 'programa',
     component: Programa,
-  },
-
-  {
-    path: '/programa/:slug',
-    name: 'programa-detalle',
-    component: ProgramaDetalle,
+    children: [
+      {
+        path: '',
+        name: 'programa',
+        component: ProgramaListado,
+      },
+      {
+        path: ':slug',
+        name: 'programa-detalle',
+        component: ProgramaDetalle,
+      },
+    ],
   },
 
   {

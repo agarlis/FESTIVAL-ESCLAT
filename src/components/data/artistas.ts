@@ -163,17 +163,17 @@ export const artistas = [
 
   {
     id: 11,
-    slug: '???',
-    nombre: '???',
-    disciplina: 'Música · Punk Pop',
+    slug: 'Karavana',
+    nombre: 'Karavana',
+    disciplina: 'Música · Indie Rock',
     dia: '25 OCT 2026',
-    bio: '.........',
+    bio: 'Indie rock madrileño con guitarras potentes, energía en directo y estribillos inolvidables.',
     actividades: ['17:00 - Concierto'],
     imagen: nose,
     spotifyEmbed:
-      '',
+      'https://open.spotify.com/embed/artist/6SShgjYwZQZ8Nx2wo5IKdd?utm_source=generator&theme=0',
     youtubeEmbed:
-      ''
+      'https://www.youtube.com/embed/wHlEMR1wAUY?si=uACCf1lQLIIUAk9N'
   },
 
   {

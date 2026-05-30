@@ -100,22 +100,22 @@ const comprarEntradaAccesible = () => {
 </script>
 
 <template>
-  <main class="bg-white text-black min-h-screen px-10 py-8">
+  <main class="bg-white text-black min-h-screen px-4 sm:px-6 md:px-10 py-6 md:py-8">
 
     <!-- TITULO -->
     <section class="text-center">
-      <h1 class="text-5xl font-bold">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">
         {{ t('entradas.titulo') }}
       </h1>
     </section>
 
     <!-- TIPOS DE ENTRADA -->
-    <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 py-8">
+    <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 py-8">
 
       <article
         v-for="entrada in entradas"
         :key="entrada.id"
-        class="aspect-square p-8 flex flex-col justify-between hover:-translate-y-2 transition"
+        class="aspect-auto md:aspect-square p-6 md:p-8 flex flex-col justify-between hover:-translate-y-2 transition min-h-95"
         :class="{
           'bg-[#0669BF] text-white': entrada.id === 1,
           'bg-[#F22E2E] text-white': entrada.id === 2,
@@ -129,7 +129,7 @@ const comprarEntradaAccesible = () => {
             {{ t(`entradas.tarjetas.${entrada.id}.tipo`) }}
           </p>
 
-          <h2 class="text-4xl font-black uppercase mt-4">
+          <h2 class="text-3xl md:text-4xl font-black uppercase mt-4">
             {{ t(`entradas.tarjetas.${entrada.id}.titulo`) }}
           </h2>
 
@@ -139,7 +139,7 @@ const comprarEntradaAccesible = () => {
         </div>
 
         <div>
-          <p class="text-4xl font-black mb-4">
+          <p class="text-3xl md:text-4xl font-black mb-4">
             {{ entrada.precio }}
           </p>
 
@@ -161,7 +161,7 @@ const comprarEntradaAccesible = () => {
       </article>
 
       <!-- ACCESIBLE -->
-      <article class="aspect-square bg-[#F2D022] text-white p-8 flex flex-col justify-between hover:-translate-y-2 transition">
+      <article class="aspect-auto md:aspect-square bg-[#F2D022] text-white p-6 md:p-8 flex flex-col justify-between hover:-translate-y-2 transition min-h-95">
         <div>
           <p class="italic font-light text-sm">
             {{ t('entradas.accesibleTipo') }}
@@ -207,13 +207,13 @@ const comprarEntradaAccesible = () => {
     </section>
 
     <!-- INSCRIPCIONES Y CONTACTO -->
-    <section class="mt-24 border-t border-black pt-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <section class="mt-16 md:mt-24 border-t border-black pt-10 md:pt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
       <div>
         <p class="italic font-light text-sm">
           {{ t('entradas.reservas') }}
         </p>
 
-        <h2 class="text-4xl font-bold uppercase mt-3 text-[#F22E2E]">
+        <h2 class="text-3xl md:text-4xl font-bold uppercase mt-3 text-[#F22E2E]">
           {{ t('entradas.actividadesTitulo') }}
         </h2>
 
@@ -229,38 +229,38 @@ const comprarEntradaAccesible = () => {
         </RouterLink>
       </div>
 
-      <div class="border border-[#F22E2E] p-8 flex flex-col justify-between ">
+      <div class="border border-[#F22E2E] p-6 md:p-8 flex flex-col justify-between">
         <div>
           <p class="italic font-light text-sm">
             {{ t('entradas.contactoIntro') }}
           </p>
 
-          <h2 class="text-4xl font-bold uppercase mt-3">
+          <h2 class="text-3xl md:text-4xl font-bold uppercase mt-3">
             {{ t('comun.contacto') }}
           </h2>
         </div>
 
         <a
           href="mailto:festivalesclat@gmail.com"
-          class="text-xl font-bold transition"
+          class="text-lg md:text-xl font-bold transition"
         >
           festivalesclat@gmail.com
         </a>
-        <p class="text-xl font-bold transition">
+        <p class="text-lg md:text-xl font-bold transition">
           963 910 477
         </p>
       </div>
     </section>
 
     <!-- MAPA -->
-    <section class="mt-24 border-t border-black">
+    <section class="mt-16 md:mt-24 border-t border-black">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 py-8">
         <div>
           <p class="italic font-light text-sm">
             {{ t('comun.ubicacion') }}
           </p>
 
-          <h2 class="text-4xl font-bold uppercase mt-3 text-[#F22E2E]">
+          <h2 class="text-3xl md:text-4xl font-bold uppercase mt-3 text-[#F22E2E]">
             Las Naves
           </h2>
 
@@ -272,7 +272,7 @@ const comprarEntradaAccesible = () => {
       <iframe
         :title="t('entradas.mapaTitulo')"
         src="https://maps.google.com/maps?q=Las%20Naves%20Valencia&t=&z=15&ie=UTF8&iwloc=&output=embed"
-        class="w-full h-130 "
+        class="w-full h-75 md:h-125"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
       />

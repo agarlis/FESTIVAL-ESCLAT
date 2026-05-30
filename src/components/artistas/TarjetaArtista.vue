@@ -34,7 +34,7 @@ const props = defineProps({
       class="absolute inset-0 opacity-0 group-hover:opacity-100 bg-[#F22E2E] transition duration-300 flex items-center justify-center p-6 pointer-events-none z-10"
       style="width:100%;height:100%;"
     >
-      <h3 class="text-white text-3xl font-black uppercase text-center">
+      <h3 class="text-white text-xl sm:text-2xl md:text-3xl font-black uppercase text-center">
         {{ artista.nombre }}
       </h3>
     </div>

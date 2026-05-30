@@ -43,22 +43,25 @@ const coloresTextoDia: Record<string, string> = {
 
 <template>
   <article
-    :class="`aspect-square p-8 flex flex-col justify-between hover:-translate-y-2 transition ${coloresDia[evento.diaSlug] || 'bg-black'} text-white`"
-  >
+  :class="`min-h-105px] md:aspect-square p-5 sm:p-6 md:p-8 flex flex-col justify-between hover:-translate-y-2 transition
+    ${coloresDia[evento.diaSlug] || 'bg-black'}
+    text-white
+  `"
+>
     <div>
-      <p class="text-sm font-bold uppercase">
+      <p class="text-xs sm:text-sm font-bold uppercase">
         {{ evento.hora }} · {{ evento.espacio }}
       </p>
 
-      <h2 class="text-4xl font-black uppercase mt-4">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-black uppercase mt-3 md:mt-4">
         {{ textoEvento(evento, 'titulo') }}
       </h2>
 
-      <p class="italic font-extralight mt-2 text-sm">
+      <p class="italic font-extralight mt-2 text-xs sm:text-sm">
         {{ textoEvento(evento, 'categoria') }}
       </p>
 
-      <p class="mt-6 text-base leading-relaxed">
+      <p class="mt-4 md:mt-6 mb-8 md:mb-12 text-sm sm:text-base leading-relaxed">
         {{ textoEvento(evento, 'descripcion') }}
       </p>
     </div>
@@ -68,7 +71,7 @@ const coloresTextoDia: Record<string, string> = {
       type="button"
       @click="handleInscribirse"
       :class="[
-        'px-4 py-3 uppercase font-bold transition border border-white text-white hover:bg-white',
+        'px-4 py-3 md:px-5 md:py-3 uppercase font-bold text-sm md:text-base transition border border-white text-white hover:bg-white',
         coloresTextoDia[evento.diaSlug]
       ]"
     >
@@ -79,7 +82,7 @@ const coloresTextoDia: Record<string, string> = {
       v-else
       type="button"
       :class="[
-        'px-4 py-3 uppercase font-bold transition border border-white text-white hover:bg-white',
+        'px-4 py-3 md:px-5 md:py-3 uppercase font-bold text-sm md:text-base transition border border-white text-white hover:bg-white',
         coloresTextoDia[evento.diaSlug]
       ]"
     >

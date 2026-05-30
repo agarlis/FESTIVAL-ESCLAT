@@ -19,7 +19,7 @@ const setFiltro = (valor: string) => {
       :class="filtroActivo === 'todos'
           ? 'bg-[#F22E2E] text-white'
           : 'bg-white text-[#F22E2E]'"
-      class="px-6 py-3 border border-[#F22E2E] font-bold uppercase transition"
+      class="px-5 sm:px-8 md:px-10 py-3 md:py-4 border font-black uppercase transition text-sm md:text-base"
     >
       {{ t('programa.todos') }}
     </button>
@@ -30,7 +30,7 @@ const setFiltro = (valor: string) => {
       :class="filtroActivo === 'concierto'
           ? 'bg-[#F22E2E] text-white'
           : 'bg-white text-[#F22E2E]'"
-      class="px-6 py-3 border border-[#F22E2E] font-bold uppercase transition"
+      class="px-5 sm:px-8 md:px-10 py-3 md:py-4 border font-black uppercase transition text-sm md:text-base"
     >
       {{ t('programa.conciertos') }}
     </button>
@@ -41,7 +41,7 @@ const setFiltro = (valor: string) => {
       :class="filtroActivo === 'taller'
           ? 'bg-[#F22E2E] text-white'
           : 'bg-white text-[#F22E2E]'"
-      class="px-6 py-3 border border-[#F22E2E] font-bold uppercase transition"
+      class="px-5 sm:px-8 md:px-10 py-3 md:py-4 border font-black uppercase transition text-sm md:text-base"
     >
       {{ t('programa.talleres') }}
     </button>
@@ -52,7 +52,7 @@ const setFiltro = (valor: string) => {
       :class="filtroActivo === 'charla'
           ? 'bg-[#F22E2E] text-white'
           : 'bg-white text-[#F22E2E]'"
-      class="px-6 py-3 border border-[#F22E2E] font-bold uppercase transition"
+      class="px-5 sm:px-8 md:px-10 py-3 md:py-4 border font-black uppercase transition text-sm md:text-base"
     >
       {{ t('programa.charlas') }}
     </button>

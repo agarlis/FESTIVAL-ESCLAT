@@ -68,11 +68,11 @@ const añadirCarrito = () => {
 </script>
 
 <template>
-  <main class="bg-white text-black px-8 py-16">
+  <main class="bg-white text-black px-4 sm:px-6 md:px-8 py-8 md:py-16">
 
     <section
       v-if="producto"
-      class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20"
+      class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20"
     >
 
       <!-- GALERÍA -->
@@ -81,21 +81,21 @@ const añadirCarrito = () => {
         <img
           :src="imagenSeleccionada"
           :alt="t(`merchandising.productos.${producto.id}`)"
-          class="w-full h-175 object-cover"
+          class="w-full h-90 sm:h-90 md:h-130 lg:h-120 object-cover"
         />
 
-        <div class="flex gap-6 mt-6">
+        <div class="flex gap-3 md:gap-6 mt-4 md:mt-6">
 
           <img
             :src="producto.imagen"
             @click="imagenSeleccionada = producto.imagen"
-            class="w-32 h-32 object-cover cursor-pointer transition-opacity hover:opacity-80"
+            class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover cursor-pointer transition-opacity hover:opacity-80"
           />
 
           <img
             :src="producto.imagenHover"
             @click="imagenSeleccionada = producto.imagenHover"
-            class="w-32 h-32 object-cover cursor-pointer transition-opacity hover:opacity-80"
+            class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover cursor-pointer transition-opacity hover:opacity-80"
           />
 
         </div>
@@ -105,11 +105,11 @@ const añadirCarrito = () => {
       <!-- INFO -->
       <div>
 
-        <h1 class="text-5xl font-black uppercase leading-tight mb-8 text-[#F22E2E]">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase leading-tight mb-6 md:mb-8 text-[#F22E2E]">
           {{ t(`merchandising.productos.${producto.id}`) }}
         </h1>
 
-        <p class="text-3xl italic font-light mb-10 text-black">
+        <p class="text-2xl sm:text-3xl italic font-light mb-6 md:mb-10 text-black">
           {{ producto.precio }}
         </p>
 
@@ -129,7 +129,7 @@ const añadirCarrito = () => {
               :key="talla"
               @click="tallaSeleccionada = talla"
               :class="[
-                'border px-6 py-3 transition',
+                'border px-4 md:px-6 py-2 md:py-3 text-sm md:text-base transition',
                 tallaSeleccionada === talla
                   ? 'bg-[#F22E2E] text-white border-[#F22E2E]'
                   : 'bg-white text-[#F22E2E] border-[#F22E2E] hover:bg-[#F22E2E] hover:text-white'
@@ -148,22 +148,22 @@ const añadirCarrito = () => {
             {{ t('merchandising.cantidad') }}
           </p>
 
-          <div class="flex border border-[#F22E2E] w-fit text-[#F22E2E]">
+          <div class="flex border border-[#F22E2E] w-fit text-[#F22E2E] text-sm md:text-base">
 
             <button
               @click="restar"
-              class="px-6 py-4 text-xl hover:bg-[#F22E2E] hover:text-white transition"
+              class="px-4 md:px-6 py-3 md:py-4 text-lg md:text-xl hover:bg-[#F22E2E] hover:text-white transition"
             >
               -
             </button>
 
-            <span class="px-8 py-4">
+            <span class="px-5 md:px-8 py-3 md:py-4">
               {{ cantidad }}
             </span>
 
             <button
               @click="sumar"
-              class="px-6 py-4 text-xl hover:bg-[#F22E2E] hover:text-white transition"
+              class="px-4 md:px-6 py-3 md:py-4 text-lg md:text-xl hover:bg-[#F22E2E] hover:text-white transition"
             >
               +
             </button>
@@ -175,13 +175,13 @@ const añadirCarrito = () => {
         <!-- BOTÓN -->
         <button
           @click="añadirCarrito"
-          class="w-full border border-[#F22E2E] bg-[#F22E2E] text-white py-5 uppercase font-semibold hover:bg-white hover:text-[#F22E2E] transition mb-12"
+          class="w-full border border-[#F22E2E] bg-[#F22E2E] text-white py-4 md:py-5 uppercase font-semibold text-sm md:text-base hover:bg-white hover:text-[#F22E2E] transition mb-12"
         >
           {{ t('merchandising.anadir') }}
         </button>
 
         <!-- DESCRIPCIÓN -->
-        <div class="space-y-6 mb-12 italic text-lg leading-relaxed font-light">
+        <div class="space-y-4 md:space-y-6 mb-10 md:mb-12 italic text-base md:text-lg leading-relaxed font-light">
 
           <p>
             {{ t('merchandising.descripcion1') }}
@@ -197,12 +197,12 @@ const añadirCarrito = () => {
         <Accordion
           type="single"
           collapsible
-          class="flex flex-col gap-4"
+          class="flex flex-col gap-2 md:gap-4"
         >
 
           <AccordionItem
             value="material"
-            class="px-4 text-[#F22E2E]"
+            class="px-2 md:px-4 text-[#F22E2E]"
           >
             <AccordionTrigger>
               {{ t('merchandising.material') }}
@@ -215,7 +215,7 @@ const añadirCarrito = () => {
 
           <AccordionItem
             value="envio"
-            class="px-4 text-[#F22E2E]"
+            class="px-2 md:px-4 text-[#F22E2E]"
           >
             <AccordionTrigger>
               {{ t('merchandising.envio') }}
@@ -228,7 +228,7 @@ const añadirCarrito = () => {
 
           <AccordionItem
             value="cuidados"
-            class="px-4 text-[#F22E2E]"
+            class="px-2 md:px-4 text-[#F22E2E]"
           >
             <AccordionTrigger>
               {{ t('merchandising.cuidados') }}

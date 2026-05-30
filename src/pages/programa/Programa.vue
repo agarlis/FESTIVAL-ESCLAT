@@ -77,24 +77,24 @@ const abrirInscripcion = (evento: (typeof eventos)[number]) => {
 </script>
 
 <template>
-  <main class="bg-white text-black min-h-screen px-10 py-8">
+  <main class="bg-white text-black min-h-screen px-4 sm:px-6 md:px-8 lg:px-10 py-6 md:py-8">
 
     <!-- TITULO -->
     <section class="text-center">
-      <h1 class="text-5xl font-bold">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">
         {{ t('programa.titulo') }}
       </h1>
     </section>
 
     <!-- DIAS -->
-    <section class="flex justify-center gap-6 py-8 flex-wrap">
+    <section class="flex justify-center gap-3 md:gap-6 py-6 md:py-8 flex-wrap">
 
       <button
         @click="diaActivo = 'todos'"
         :class="diaActivo === 'todos'
           ? 'bg-[#F22E2E] text-white'
           : 'bg-white text-[#F22E2E]'"
-        class="px-10 py-4 border border-[#F22E2E] font-black uppercase transition"
+        class="px-5 sm:px-8 md:px-10 py-3 md:py-4 border font-black uppercase transition text-sm md:text-base"
       >
         {{ t('programa.todos') }}
       </button>
@@ -104,7 +104,7 @@ const abrirInscripcion = (evento: (typeof eventos)[number]) => {
         :class="diaActivo === 'viernes'
           ? 'bg-[#0669BF] text-white'
           : 'bg-white text-[#0669BF]'"
-        class="px-10 py-4 border border-[#0669BF] font-black uppercase transition"
+        class="px-5 sm:px-8 md:px-10 py-3 md:py-4 border font-black uppercase transition text-sm md:text-base"
       >
         {{ t('programa.viernes') }}
       </button>
@@ -114,7 +114,7 @@ const abrirInscripcion = (evento: (typeof eventos)[number]) => {
         :class="diaActivo === 'sabado'
           ? 'bg-[#F22E2E] text-white'
           : 'bg-white text-[#F22E2E]'"
-        class="px-10 py-4 border border-[#F22E2E] font-black uppercase transition"
+        class="px-5 sm:px-8 md:px-10 py-3 md:py-4 border font-black uppercase transition text-sm md:text-base"
       >
         {{ t('programa.sabado') }}
       </button>
@@ -124,7 +124,7 @@ const abrirInscripcion = (evento: (typeof eventos)[number]) => {
         :class="diaActivo === 'domingo'
           ? 'bg-[#F25EA3] text-white'
           : 'bg-white text-[#F25EA3]'"
-        class="px-10 py-4 border border-[#F25EA3] font-black uppercase transition"
+        class="px-5 sm:px-8 md:px-10 py-3 md:py-4 border font-black uppercase transition text-sm md:text-base"
       >
         {{ t('programa.domingo') }}
       </button>
@@ -138,7 +138,7 @@ const abrirInscripcion = (evento: (typeof eventos)[number]) => {
     />
 
     <!-- EVENTOS -->
-    <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 py-8">
+    <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 py-6 md:py-8">
 
       <RouterLink
         v-for="evento in eventosFiltrados"

@@ -117,4 +117,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 }

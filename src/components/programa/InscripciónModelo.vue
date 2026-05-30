@@ -46,19 +46,19 @@ const colorModal = () => {
     @update:open="emit('cerrar')"
   >
     <DialogContent
-      class="sm:max-w-xl rounded-none shadow-none border-none text-white"
+      class="w-[95vw] sm:w-full sm:max-w-xl rounded-none shadow-none border-none text-white p-4 sm:p-6"
       :style="{ backgroundColor: colorModal() }"
     >
       <DialogHeader>
 
         <DialogTitle
-          class="text-5xl font-black uppercase tracking-tight text-white"
+          class="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white"
         >
           {{ t('programa.inscripcion') }}
         </DialogTitle>
 
         <DialogDescription
-          class="italic text-white/80"
+          class="italic text-sm sm:text-base text-white/90"
         >
           {{
             evento
@@ -69,33 +69,33 @@ const colorModal = () => {
 
       </DialogHeader>
 
-      <div class="space-y-6 mt-4">
+      <div class="space-y-4 sm:space-y-6 mt-4">
 
         <div class="space-y-2">
-          <Label class="text-white">
+          <Label class="text-white text-sm sm:text-base">
             {{ t('programa.nombreCompleto') }}
           </Label>
 
           <Input
-            class="rounded-none border-white bg-transparent text-white placeholder:text-white/60 focus-visible:ring-white"
+            class="h-11 sm:h-12 rounded-none border-white bg-transparent text-white placeholder:text-white/60 focus-visible:ring-white"
             :placeholder="t('programa.nombrePlaceholder')"
           />
         </div>
 
         <div class="space-y-2">
-          <Label class="text-white">
+          <Label class="text-white text-sm sm:text-base">
             {{ t('programa.correo') }}
           </Label>
 
           <Input
             type="email"
             placeholder="correo@email.com"
-            class="rounded-none border-white bg-transparent text-white placeholder:text-white/60 focus-visible:ring-white"
+            class="h-11 sm:h-12 rounded-none border-white bg-transparent text-white placeholder:text-white/60 focus-visible:ring-white"
           />
         </div>
 
         <Button
-          class="w-full rounded-none border border-white uppercase font-bold transition-all duration-200"
+          class="w-full h-11 sm:h-12 rounded-none border border-white uppercase font-bold transition-all duration-200 text-sm sm:text-base"
           :style="{
             backgroundColor: hoverBoton ? colorModal() : '#FFFFFF',
             color: hoverBoton ? '#FFFFFF' : colorModal()

@@ -20,9 +20,9 @@ const props = defineProps({
 <template>
   <RouterLink
     :to="`/producto/${props.producto.id}`"
-    class="block text-center group"
+    class="block text-center group px-2"
   >
-    <div class="relative w-full h-64 mb-6 overflow-hidden">
+    <div class="relative w-full h-70 sm:h-70 md:h-64 mb-4 md:mb-6 overflow-hidden">
 
       <img
         :src="props.producto.imagen"
@@ -39,13 +39,13 @@ const props = defineProps({
     </div>
 
     <h3
-      class="text-xl font-black uppercase text-[#F22E2E] transition-all group-hover:underline"
+      class="text-lg sm:text-xl font-black uppercase text-[#F22E2E] transition-all group-hover:underline leading-tight"
     >
       {{ t(`merchandising.productos.${props.producto.id}`) }}
     </h3>
 
     <p
-      class="italic text-m font-light mt-2 text-black"
+      class="italic text-sm sm:text-base font-light mt-2 text-black"
     >
       {{ props.producto.precio }}
     </p>

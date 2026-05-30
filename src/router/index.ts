@@ -19,83 +19,96 @@ import ProteccionDatos from "@/pages/legal/ProteccionDatos.vue";
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
 
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: Home,
-    },
-    {
-      path: "/artistas",
-      name: "artistas",
-      component: Artistas,
-    },
-{
-  path: '/artistas/:slug',
-  name: 'artista-detalle',
-  component: ArtistaDetalle,
-},
-    {
-  path: '/programa',
-  name: 'programa',
-  component: Programa
-},
+routes: [
+  {
+    path: '/',
+    name: 'home',
+    component: Home,
+  },
 
-{
-  path: '/programa/:slug',
-  name: 'programa-detalle',
-  component: ProgramaDetalle
-},
-    {
-      path: "/entradas",
-      name: "entradas",
-      component: Entradas,
-    },
-    {
+  {
+    path: '/artistas',
+    name: 'artistas',
+    component: Artistas,
+  },
+
+  {
+    path: '/artistas/:slug',
+    name: 'artista-detalle',
+    component: ArtistaDetalle,
+  },
+
+  {
+    path: '/programa',
+    name: 'programa',
+    component: Programa,
+  },
+
+  {
+    path: '/programa/:slug',
+    name: 'programa-detalle',
+    component: ProgramaDetalle,
+  },
+
+  {
+    path: '/entradas',
+    name: 'entradas',
+    component: Entradas,
+  },
+
+  {
     path: '/merchandising',
     name: 'merchandising',
-    component: Merchandising
-    },
-    {
-      path: '/producto/:id',
-      name: 'producto',
-      component: Producto
-    },
-    {
+    component: Merchandising,
+  },
+
+  {
+    path: '/producto/:id',
+    name: 'producto',
+    component: Producto,
+  },
+
+  {
     path: '/carrito',
     name: 'carrito',
-    component: Carrito
+    component: Carrito,
   },
+
   {
     path: '/checkout',
     name: 'checkout',
-    component: Checkout
+    component: Checkout,
   },
-    {
-      path: "/info",
-      name: "info",
-      component: Info,
-    },
-    {
-      path: "/aviso-legal",
-      name: "aviso-legal",
-      component: AvisoLegal,
-    },
-    {
-      path: "/cookies",
-      name: "cookies",
-      component: Cookies,
-    },
-    {
-      path: "/proteccion-datos",
-      name: "proteccion-datos",
-      component: ProteccionDatos,
-    },
-    {
-      path: "/:pathMatch(.*)*",
-      redirect: "/",
-    },
-  ],
-});
 
-export default router;
+  {
+    path: '/info',
+    name: 'info',
+    component: Info,
+  },
+
+  {
+    path: '/aviso-legal',
+    name: 'aviso-legal',
+    component: AvisoLegal,
+  },
+
+  {
+    path: '/cookies',
+    name: 'cookies',
+    component: Cookies,
+  },
+
+  {
+    path: '/proteccion-datos',
+    name: 'proteccion-datos',
+    component: ProteccionDatos,
+  },
+
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
+  },
+],
+})
+
+export default router

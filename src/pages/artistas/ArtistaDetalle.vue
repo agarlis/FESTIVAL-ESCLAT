@@ -53,11 +53,11 @@ const colorDia = computed(() => {
 <template>
   <section
     v-if="artista"
-    class="bg-white min-h-screen px-14 py-10"
+    class="bg-white min-h-screen px-4 sm:px-6 md:px-8 lg:px-14 py-6 md:py-10"
   >
 
     <!-- NAV TOP -->
-    <div class="flex items-center justify-between mb-20">
+    <div class="flex items-center justify-between mb-8 md:mb-20">
 
       <!-- VOLVER -->
       <RouterLink
@@ -65,7 +65,7 @@ const colorDia = computed(() => {
         class="hover:opacity-60 transition"
         :style="{ color: colorDia }"
       >
-        <LayoutGrid class="w-8 h-8" />
+        <LayoutGrid class="w-6 h-6 md:w-8 md:h-8" />
       </RouterLink>
 
       <!-- FLECHAS -->
@@ -77,7 +77,7 @@ const colorDia = computed(() => {
           class="hover:opacity-60 transition"
           :style="{ color: colorDia }"
         >
-          <ChevronLeft class="w-10 h-10" />
+          <ChevronLeft class="w-8 h-8 md:w-10 md:h-10" />
         </RouterLink>
 
         <RouterLink
@@ -86,7 +86,7 @@ const colorDia = computed(() => {
           class="hover:opacity-60 transition"
           :style="{ color: colorDia }"
         >
-          <ChevronRight class="w-10 h-10" />
+          <ChevronRight class="w-8 h-8 md:w-10 md:h-10" />
         </RouterLink>
 
       </div>
@@ -94,7 +94,7 @@ const colorDia = computed(() => {
     </div>
 
     <!-- CONTENIDO -->
-    <div class="grid grid-cols-3 gap-8 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
 
       <!-- IMAGEN -->
       <div>
@@ -109,33 +109,33 @@ const colorDia = computed(() => {
       <div>
 
         <h2
-          class="text-5xl font-black uppercase mb-4"
+          class="text-3xl sm:text-4xl md:text-5xl font-black uppercase mb-4"
           :style="{ color: colorDia }"
         >
           {{ artista.nombre }}
         </h2>
 
         <p
-          class="italic font-extralight uppercase mb-6 text-black"
+          class="italic font-extralight uppercase mb-4 md:mb-6 text-black text-sm md:text-base"
         >
           {{ artista.dia }}
         </p>
 
         <p
-          class="text-lg font-medium mb-4"
+          class="text-base md:text-lg font-medium mb-4"
           :style="{ color: colorDia }"
         >
           {{ textoArtista(artista, 'disciplina') }}
         </p>
 
-        <p class="text-lg text-black mb-8">
+        <p class="text-base md:text-lg text-black mb-8 leading-relaxed">
           {{ textoArtista(artista, 'bio') }}
         </p>
 
         <div>
 
           <h3
-            class="text-2xl font-black uppercase mb-4"
+            class="text-xl md:text-2xl font-black uppercase mb-4"
             :style="{ color: colorDia }"
           >
             {{ t('artistas.actividades') }}
@@ -164,11 +164,11 @@ const colorDia = computed(() => {
         <iframe
           :src="artista.spotifyEmbed"
           width="100%"
-          height="352"
+          height="400"
           frameborder="0"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
-          class="rounded-xl"
+          class="rounded-xl min-h-100"
         />
       </div>
 
@@ -177,16 +177,16 @@ const colorDia = computed(() => {
     <!-- YOUTUBE -->
     <div
       v-if="artista.youtubeEmbed"
-      class="mt-20"
+      class="mt-10 md:mt-20 aspect-video"
     >
       <iframe
-        width="100%"
-        height="600"
         :src="artista.youtubeEmbed"
         :title="t('artistas.videoYoutube')"
+        width="100%"
+        height="100%"
         frameborder="0"
         allowfullscreen
-        class="rounded-xl"
+        class="rounded-xl w-full h-full"
       />
     </div>
 

@@ -26,11 +26,24 @@ const handleInscribirse = (event: MouseEvent) => {
   event.preventDefault()
   emit('inscribirse')
 }
+
+
+const coloresDia: Record<string, string> = {
+  viernes: 'bg-[#0669BF]',
+  sabado: 'bg-[#F22E2E]',
+  domingo: 'bg-[#F25EA3]',
+}
+
+const coloresTextoDia: Record<string, string> = {
+  viernes: 'hover:text-[#0669BF]',
+  sabado: 'hover:text-[#F22E2E]',
+  domingo: 'hover:text-[#F25EA3]',
+}
 </script>
 
 <template>
   <article
-    class="aspect-square p-8 flex flex-col justify-between hover:-translate-y-2 transition bg-black text-white"
+    :class="`aspect-square p-8 flex flex-col justify-between hover:-translate-y-2 transition ${coloresDia[evento.diaSlug] || 'bg-black'} text-white`"
   >
     <div>
       <p class="text-sm font-bold uppercase">
@@ -54,7 +67,10 @@ const handleInscribirse = (event: MouseEvent) => {
       v-if="evento.inscripcion"
       type="button"
       @click="handleInscribirse"
-      class="px-4 py-3 uppercase font-bold transition border border-white text-white hover:bg-white hover:text-black"
+      :class="[
+        'px-4 py-3 uppercase font-bold transition border border-white text-white hover:bg-white',
+        coloresTextoDia[evento.diaSlug]
+      ]"
     >
       {{ t('programa.inscribirme') }}
     </button>
@@ -62,7 +78,10 @@ const handleInscribirse = (event: MouseEvent) => {
     <button
       v-else
       type="button"
-      class="px-4 py-3 uppercase font-bold transition border border-white text-white hover:bg-white hover:text-black"
+      :class="[
+        'px-4 py-3 uppercase font-bold transition border border-white text-white hover:bg-white',
+        coloresTextoDia[evento.diaSlug]
+      ]"
     >
       {{ t('programa.verMas') }}
     </button>

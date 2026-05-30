@@ -30,19 +30,19 @@ const mostrarCarrito = computed(() => {
 
         <a href="https://www.instagram.com/festivalesclat/">
           <Instagram
-            class="w-5 h-5 cursor-pointer hover:opacity-60 transition"
+            class="w-5 h-5 cursor-pointer hover:text-[#F22E2E] transition"
           />
         </a>
 
         <a href="https://x.com/festivalesclat">
           <Twitter
-            class="w-5 h-5 cursor-pointer hover:opacity-60 transition"
+            class="w-5 h-5 cursor-pointer hover:text-[#F22E2E] transition"
           />
         </a>
 
         <a href="https://www.tiktok.com/@festivalesclat">
           <Music2
-            class="w-5 h-5 cursor-pointer hover:opacity-60 transition"
+            class="w-5 h-5 cursor-pointer hover:text-[#F22E2E] transition"
           />
         </a>
 
@@ -63,14 +63,14 @@ const mostrarCarrito = computed(() => {
       <div class="flex items-center gap-6">
 
         <!-- IDIOMAS -->
-        <div class="flex items-center gap-4 text-sm uppercase tracking-wide">
+        <div class="flex items-center gap-4 text-sm uppercase">
           <button
             v-for="idioma in idiomas"
             :key="idioma.codigo"
             type="button"
             :aria-label="`${t('comun.cambiarIdioma')} ${idioma.nombre}`"
-            :class="idiomaActivo === idioma.codigo ? 'font-black underline' : 'hover:opacity-60'"
-            class="transition"
+            :class="idiomaActivo === idioma.codigo ? 'font-black underline text-[#F22E2E]' : ''"
+            class="transition hover:text-[#F22E2E]"
             @click="cambiarIdioma(idioma.codigo)"
           >
             {{ idioma.etiqueta }}
@@ -83,7 +83,7 @@ const mostrarCarrito = computed(() => {
           to="/carrito"
         >
           <ShoppingBag
-            class="w-5 h-5 cursor-pointer hover:opacity-60 transition"
+            class="w-5 h-5 cursor-pointer hover:text-[#F22E2E] transition"
           />
         </RouterLink>
 

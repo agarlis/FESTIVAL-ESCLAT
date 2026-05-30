@@ -125,56 +125,56 @@ const nombreItem = (item: any) => {
 </script>
 
 <template>
-  <main class="bg-white min-h-screen px-12 py-16">
+  <main class="bg-white min-h-screen px-12 py-8">
 
     <section class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
 
       <!-- FORM -->
       <div>
 
-        <h2 class="text-3xl font-bold mb-10">
+        <h2 class="text-3xl font-bold mb-10 text-[#F22E2E]">
           {{ t('checkout.contacto') }}
         </h2>
 
         <div class="space-y-4 mb-8">
-          <Input v-model="form.email" :placeholder="t('checkout.email')" class="italic border border-black rounded-none bg-white h-12" />
-          <p v-if="errors.email" class="text-sm text-red-600">
+          <Input v-model="form.email" :placeholder="t('checkout.email')" class="italic border border-[#F22E2E] rounded-none bg-white h-12" />
+          <p v-if="errors.email" class="text-sm text-[#F22E2E]">
             {{ errors.email }}
           </p>
 
-          <Input v-model="form.nombre" :placeholder="t('checkout.nombre')" class="italic border border-black rounded-none bg-white h-12" />
-          <p v-if="errors.nombre" class="text-sm text-red-600">
+          <Input v-model="form.nombre" :placeholder="t('checkout.nombre')" class="italic border border-[#F22E2E] rounded-none bg-white h-12" />
+          <p v-if="errors.nombre" class="text-sm text-[#F22E2E]">
             {{ errors.nombre }}
           </p>
 
-          <Input v-model="form.apellidos" :placeholder="t('checkout.apellidos')" class="italic border border-black rounded-none bg-white h-12" />
-          <p v-if="errors.apellidos" class="text-sm text-red-600">
+          <Input v-model="form.apellidos" :placeholder="t('checkout.apellidos')" class="italic border border-[#F22E2E] rounded-none bg-white h-12" />
+          <p v-if="errors.apellidos" class="text-sm text-[#F22E2E]">
             {{ errors.apellidos }}
           </p>
 
-          <Input v-model="form.direccion" :placeholder="t('checkout.direccion')" class="italic border border-black rounded-none bg-white h-12" />
-          <p v-if="errors.direccion" class="text-sm text-red-600">
+          <Input v-model="form.direccion" :placeholder="t('checkout.direccion')" class="italic border border-[#F22E2E] rounded-none bg-white h-12" />
+          <p v-if="errors.direccion" class="text-sm text-[#F22E2E]">
             {{ errors.direccion }}
           </p>
 
-          <Input v-model="form.codigoPostal" :placeholder="t('checkout.codigoPostal')" class="italic border border-black rounded-none bg-white h-12" />
-          <p v-if="errors.codigoPostal" class="text-sm text-red-600">
+          <Input v-model="form.codigoPostal" :placeholder="t('checkout.codigoPostal')" class="italic border border-[#F22E2E] rounded-none bg-white h-12" />
+          <p v-if="errors.codigoPostal" class="text-sm text-[#F22E2E]">
             {{ errors.codigoPostal }}
           </p>
 
-          <Input v-model="form.telefono" :placeholder="t('checkout.telefono')" class="italic border border-black rounded-none bg-white h-12" />
-          <p v-if="errors.telefono" class="text-sm text-red-600">
+          <Input v-model="form.telefono" :placeholder="t('checkout.telefono')" class="italic border border-[#F22E2E] rounded-none bg-white h-12" />
+          <p v-if="errors.telefono" class="text-sm text-[#F22E2E]">
             {{ errors.telefono }}
           </p>
         </div>
 
-        <h2 class="text-3xl font-bold mb-6">
+        <h2 class="text-3xl font-bold mb-6 text-[#F22E2E]">
           {{ t('checkout.pago') }}
         </h2>
 
         <div class="space-y-4 mb-8">
-          <Input v-model="form.numeroTarjeta" :placeholder="t('checkout.numeroTarjeta')" class="italic border border-black rounded-none bg-white h-12" />
-          <p v-if="errors.numeroTarjeta" class="text-sm text-red-600">
+          <Input v-model="form.numeroTarjeta" :placeholder="t('checkout.numeroTarjeta')" class="italic border border-[#F22E2E] rounded-none bg-white h-12" />
+          <p v-if="errors.numeroTarjeta" class="text-sm text-[#F22E2E]">
             {{ errors.numeroTarjeta }}
           </p>
 
@@ -182,9 +182,9 @@ const nombreItem = (item: any) => {
             :model-value="formatoFecha(form.mmAa)"
             @update:modelValue="value => form.mmAa = formatoFecha(String(value))"
             placeholder="MM/AA"
-            class="italic border border-black rounded-none bg-white h-12"
+            class="italic border border-[#F22E2E] rounded-none bg-white h-12"
           />
-          <p v-if="errors.mmAa" class="text-sm text-red-600">
+          <p v-if="errors.mmAa" class="text-sm text-[#F22E2E]">
             {{ errors.mmAa }}
           </p>
 
@@ -192,9 +192,9 @@ const nombreItem = (item: any) => {
             :model-value="formatoCvv(form.cvv)"
             @update:modelValue="value => form.cvv = formatoCvv(String(value))"
             placeholder="CVV"
-            class="italic border border-black rounded-none bg-white h-12"
+            class="italic border border-[#F22E2E] rounded-none bg-white h-12"
           />
-          <p v-if="errors.cvv" class="text-sm text-red-600">
+          <p v-if="errors.cvv" class="text-sm text-[#F22E2E]">
             {{ errors.cvv }}
           </p>
         </div>
@@ -208,7 +208,7 @@ const nombreItem = (item: any) => {
 
         <Button
           @click="finalizarCompra"
-          class="mx-auto rounded-none border border-black bg-white text-black hover:bg-black hover:text-white px-8 py-4 uppercase font-semibold shadow-none"
+          class="mx-auto rounded-none border border-[#F22E2E] bg-white text-[#F22E2E] hover:bg-[#F22E2E] hover:text-white px-8 py-4 uppercase font-semibold shadow-none"
         >
           {{ t('checkout.pagar') }}
         </Button>
@@ -216,8 +216,8 @@ const nombreItem = (item: any) => {
       </div>
 
       <!-- RESUMEN -->
-      <div class="bg-gray-50 p-10 rounded-lg">
-        <h2 class="text-3xl font-bold mb-8">
+      <div class="bg-[#F22E2E] p-10 rounded-none">
+        <h2 class="text-3xl font-bold mb-8 text-white">
           {{ t('checkout.resumen') }}
         </h2>
 
@@ -225,7 +225,7 @@ const nombreItem = (item: any) => {
           v-if="carrito.length"
           class="space-y-6"
         >
-          <div class="grid grid-cols-[2fr_1fr_1fr] gap-4 text-sm uppercase tracking-wide border-b pb-4">
+          <div class="grid grid-cols-[2fr_1fr_1fr] gap-4 text-sm uppercase tracking-wide border-b pb-4 text-white">
             <span>{{ t('comun.producto') }}</span>
             <span class="text-center">{{ t('comun.cantidad') }}</span>
             <span class="text-right">{{ t('comun.precio') }}</span>
@@ -237,35 +237,35 @@ const nombreItem = (item: any) => {
             class="grid grid-cols-[2fr_1fr_1fr] gap-4 items-center"
           >
             <div>
-              <p class="font-semibold uppercase">
+              <p class="font-semibold uppercase text-white">
                 {{ item.producto ? nombreItem(item) : t('comun.producto') }}
               </p>
-              <p v-if="item.talla" class="text-sm text-gray-600 mt-1">
+              <p v-if="item.talla" class="text-sm text-white mt-1">
                 {{ t('comun.talla') }}: {{ item.talla }}
               </p>
             </div>
 
-            <p class="text-center">
+            <p class="text-center text-white">
               {{ item.cantidad || 0 }}
             </p>
 
             <div class="text-right">
-              <p class="italic">
+              <p class="italic text-white">
                 {{ item.producto?.precio || '0,00€' }}
               </p>
-              <p class="text-sm text-gray-600">
+              <p class="text-sm text-white">
                 {{ formatearPrecio(parsePrecio(item.producto?.precio) * (item.cantidad || 0)) }}
               </p>
             </div>
           </div>
 
           <div class="border-t pt-6 mt-6">
-            <div class="flex justify-between text-sm uppercase tracking-wide mb-2">
+            <div class="flex justify-between text-sm uppercase tracking-wide mb-2 text-white">
               <span>{{ t('checkout.productos') }}</span>
               <span>{{ totalItems }}</span>
             </div>
 
-            <div class="flex justify-between text-2xl font-bold">
+            <div class="flex justify-between text-2xl font-bold text-white">
               <span>{{ t('comun.total') }}</span>
               <span>{{ formatearPrecio(totalPrecio) }}</span>
             </div>
@@ -274,7 +274,7 @@ const nombreItem = (item: any) => {
 
         <div
           v-else
-          class="text-gray-600"
+          class="text-white"
         >
           {{ t('checkout.carritoVacio') }}
         </div>

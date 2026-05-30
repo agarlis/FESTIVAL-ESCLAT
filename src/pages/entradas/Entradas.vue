@@ -52,6 +52,17 @@ const comprarEntrada = (entrada: Entrada) => {
       id: entrada.id,
       nombre: entrada.nombre,
       precio: entrada.precio,
+
+      color:
+        entrada.id === 1
+          ? '#0669BF'
+          : entrada.id === 2
+          ? '#F22E2E'
+          : entrada.id === 3
+          ? '#F25EA3'
+          : entrada.id === 4
+          ? 'abono'
+          : 'vip',
     },
     cantidad: 1,
   })
@@ -76,6 +87,7 @@ const comprarEntradaAccesible = () => {
       id: entrada.id,
       nombre: entrada.nombre,
       precio: entrada.precio,
+      color: '#F2D022',
     },
     cantidad: 1,
     acreditacion: 'discapacidad',
@@ -84,6 +96,7 @@ const comprarEntradaAccesible = () => {
   localStorage.setItem('carrito', JSON.stringify(carritoActual))
   router.push('/carrito')
 }
+
 </script>
 
 <template>
@@ -102,7 +115,14 @@ const comprarEntradaAccesible = () => {
       <article
         v-for="entrada in entradas"
         :key="entrada.id"
-        class="aspect-square bg-black text-white p-8 flex flex-col justify-between hover:-translate-y-2 transition"
+        class="aspect-square p-8 flex flex-col justify-between hover:-translate-y-2 transition"
+        :class="{
+          'bg-[#0669BF] text-white': entrada.id === 1,
+          'bg-[#F22E2E] text-white': entrada.id === 2,
+          'bg-[#F25EA3] text-white': entrada.id === 3,
+          'border border-[#F22E2E] text-[#F22E2E]': entrada.id === 4,
+          'border border-[#0669BF] text-[#0669BF]': entrada.id === 5,
+        }"
       >
         <div>
           <p class="italic font-light text-sm">
@@ -124,17 +144,24 @@ const comprarEntradaAccesible = () => {
           </p>
 
           <button
-            type="button"
-            @click="comprarEntrada(entrada)"
-            class="w-full border border-white py-4 uppercase font-bold hover:bg-white hover:text-black transition"
-          >
-            {{ t('entradas.comprar') }}
-          </button>
+  type="button"
+  @click="comprarEntrada(entrada)"
+  class="w-full py-4 uppercase font-bold transition"
+  :class="{
+    'border border-white hover:bg-white hover:text-[#0669BF]': entrada.id === 1,
+    'border border-white hover:bg-white hover:text-[#F22E2E]': entrada.id === 2,
+    'border border-white hover:bg-white hover:text-[#F25EA3]': entrada.id === 3,
+    'bg-[#F22E2E] text-white border border-[#F22E2E] hover:bg-white hover:text-[#F22E2E]': entrada.id === 4,
+    'bg-[#0669BF] text-white border border-[#0669BF] hover:bg-white hover:text-[#0669BF]': entrada.id === 5,
+  }"
+>
+  {{ t('entradas.comprar') }}
+</button>
         </div>
       </article>
 
       <!-- ACCESIBLE -->
-      <article class="aspect-square bg-black text-white p-8 flex flex-col justify-between hover:-translate-y-2 transition">
+      <article class="aspect-square bg-[#F2D022] text-white p-8 flex flex-col justify-between hover:-translate-y-2 transition">
         <div>
           <p class="italic font-light text-sm">
             {{ t('entradas.accesibleTipo') }}
@@ -156,7 +183,7 @@ const comprarEntradaAccesible = () => {
 
           <select
             v-model="entradaAccesibleSeleccionada"
-            class="w-full rounded-none border border-white bg-black text-white px-4 py-4 mb-4 italic font-light"
+            class="w-full rounded-none border border-white bg-[#F2D022] text-white px-4 py-4 mb-4 italic font-light"
           >
             <option
               v-for="entrada in entradas"
@@ -170,7 +197,7 @@ const comprarEntradaAccesible = () => {
           <button
             type="button"
             @click="comprarEntradaAccesible"
-            class="w-full border border-white py-4 uppercase font-bold hover:bg-white hover:text-black transition rounded-none"
+            class="w-full border border-white py-4 uppercase font-bold hover:bg-white hover:text-[#F2D022] transition rounded-none"
           >
             {{ t('entradas.comprar') }}
           </button>
@@ -186,7 +213,7 @@ const comprarEntradaAccesible = () => {
           {{ t('entradas.reservas') }}
         </p>
 
-        <h2 class="text-4xl font-bold uppercase mt-3">
+        <h2 class="text-4xl font-bold uppercase mt-3 text-[#F22E2E]">
           {{ t('entradas.actividadesTitulo') }}
         </h2>
 
@@ -196,13 +223,13 @@ const comprarEntradaAccesible = () => {
 
         <RouterLink
           to="/programa?filtro=taller"
-          class="inline-block mt-8 border border-black px-8 py-4 uppercase font-bold hover:bg-black hover:text-white transition"
+          class="inline-block mt-8 border border-[#F22E2E] text-[#F22E2E] px-8 py-4 uppercase font-bold hover:bg-[#F22E2E] hover:border-[#F22E2E] hover:text-white transition"
         >
           {{ t('entradas.verActividades') }}
         </RouterLink>
       </div>
 
-      <div class="border border-black p-8 flex flex-col justify-between">
+      <div class="border border-[#F22E2E] p-8 flex flex-col justify-between ">
         <div>
           <p class="italic font-light text-sm">
             {{ t('entradas.contactoIntro') }}
@@ -233,7 +260,7 @@ const comprarEntradaAccesible = () => {
             {{ t('comun.ubicacion') }}
           </p>
 
-          <h2 class="text-4xl font-bold uppercase mt-3">
+          <h2 class="text-4xl font-bold uppercase mt-3 text-[#F22E2E]">
             Las Naves
           </h2>
 

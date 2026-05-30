@@ -89,13 +89,13 @@ const añadirCarrito = () => {
           <img
             :src="producto.imagen"
             @click="imagenSeleccionada = producto.imagen"
-            class="w-32 h-32 object-cover "
+            class="w-32 h-32 object-cover cursor-pointer transition-opacity hover:opacity-80"
           />
 
           <img
             :src="producto.imagenHover"
             @click="imagenSeleccionada = producto.imagenHover"
-            class="w-32 h-32 object-cover"
+            class="w-32 h-32 object-cover cursor-pointer transition-opacity hover:opacity-80"
           />
 
         </div>
@@ -105,52 +105,54 @@ const añadirCarrito = () => {
       <!-- INFO -->
       <div>
 
-        <h1 class="text-5xl font-black uppercase leading-tight mb-8">
+        <h1 class="text-5xl font-black uppercase leading-tight mb-8 text-[#F22E2E]">
           {{ t(`merchandising.productos.${producto.id}`) }}
         </h1>
 
-        <p class="text-3xl italic font-light mb-10">
+        <p class="text-3xl italic font-light mb-10 text-black">
           {{ producto.precio }}
         </p>
-<!-- TALLA -->
+
+        <!-- TALLA -->
         <div
-  v-if="producto.tallas"
-  class="mb-10"
->
-  <p class="uppercase text-sm mb-4">
-    {{ t('merchandising.talla') }}
-  </p>
+          v-if="producto.tallas"
+          class="mb-10"
+        >
+          <p class="uppercase text-sm mb-4">
+            {{ t('merchandising.talla') }}
+          </p>
 
-  <div class="flex gap-3 flex-wrap">
+          <div class="flex gap-3 flex-wrap">
 
-    <button
-      v-for="talla in producto.tallas"
-      :key="talla"
-      @click="tallaSeleccionada = talla"
-      :class="[
-        'border border-black px-6 py-3 transition',
-        tallaSeleccionada === talla
-          ? 'bg-black text-white'
-          : 'bg-white text-black hover:bg-black hover:text-white'
-      ]"
-    >
-      {{ talla }}
-    </button>
+            <button
+              v-for="talla in producto.tallas"
+              :key="talla"
+              @click="tallaSeleccionada = talla"
+              :class="[
+                'border px-6 py-3 transition',
+                tallaSeleccionada === talla
+                  ? 'bg-[#F22E2E] text-white border-[#F22E2E]'
+                  : 'bg-white text-[#F22E2E] border-[#F22E2E] hover:bg-[#F22E2E] hover:text-white'
+              ]"
+            >
+              {{ talla }}
+            </button>
 
-  </div>
-</div>
+          </div>
+        </div>
 
         <!-- CANTIDAD -->
         <div class="mb-10">
+
           <p class="uppercase text-sm mb-4">
             {{ t('merchandising.cantidad') }}
           </p>
 
-          <div class="flex border border-black w-fit">
+          <div class="flex border border-[#F22E2E] w-fit text-[#F22E2E]">
 
             <button
               @click="restar"
-              class="px-6 py-4 text-xl"
+              class="px-6 py-4 text-xl hover:bg-[#F22E2E] hover:text-white transition"
             >
               -
             </button>
@@ -161,18 +163,19 @@ const añadirCarrito = () => {
 
             <button
               @click="sumar"
-              class="px-6 py-4 text-xl"
+              class="px-6 py-4 text-xl hover:bg-[#F22E2E] hover:text-white transition"
             >
               +
             </button>
 
           </div>
+
         </div>
 
         <!-- BOTÓN -->
         <button
           @click="añadirCarrito"
-          class="w-full border border-black py-5 uppercase font-semibold hover:bg-black hover:text-white transition mb-12"
+          class="w-full border border-[#F22E2E] bg-[#F22E2E] text-white py-5 uppercase font-semibold hover:bg-white hover:text-[#F22E2E] transition mb-12"
         >
           {{ t('merchandising.anadir') }}
         </button>
@@ -197,29 +200,41 @@ const añadirCarrito = () => {
           class="flex flex-col gap-4"
         >
 
-          <AccordionItem value="material">
+          <AccordionItem
+            value="material"
+            class="px-4 text-[#F22E2E]"
+          >
             <AccordionTrigger>
               {{ t('merchandising.material') }}
             </AccordionTrigger>
-            <AccordionContent>
+
+            <AccordionContent class="text-black">
               {{ t('merchandising.materialTexto') }}
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="envio">
+          <AccordionItem
+            value="envio"
+            class="px-4 text-[#F22E2E]"
+          >
             <AccordionTrigger>
               {{ t('merchandising.envio') }}
             </AccordionTrigger>
-            <AccordionContent>
+
+            <AccordionContent class="text-black">
               {{ t('merchandising.envioTexto') }}
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="cuidados">
+          <AccordionItem
+            value="cuidados"
+            class="px-4 text-[#F22E2E]"
+          >
             <AccordionTrigger>
               {{ t('merchandising.cuidados') }}
             </AccordionTrigger>
-            <AccordionContent>
+
+            <AccordionContent class="text-black">
               {{ t('merchandising.cuidadosTexto') }}
             </AccordionContent>
           </AccordionItem>

@@ -17,9 +17,9 @@ const setFiltro = (valor: string) => {
       type="button"
       @click="setFiltro('todos')"
       :class="filtroActivo === 'todos'
-        ? 'bg-black text-white'
-        : 'bg-white text-black'"
-      class="px-6 py-3 border border-black font-bold uppercase transition"
+          ? 'bg-[#F22E2E] text-white'
+          : 'bg-white text-[#F22E2E]'"
+      class="px-6 py-3 border border-[#F22E2E] font-bold uppercase transition"
     >
       {{ t('programa.todos') }}
     </button>
@@ -28,9 +28,9 @@ const setFiltro = (valor: string) => {
       type="button"
       @click="setFiltro('concierto')"
       :class="filtroActivo === 'concierto'
-        ? 'bg-black text-white'
-        : 'bg-white text-black'"
-      class="px-6 py-3 border border-black font-bold uppercase transition"
+          ? 'bg-[#F22E2E] text-white'
+          : 'bg-white text-[#F22E2E]'"
+      class="px-6 py-3 border border-[#F22E2E] font-bold uppercase transition"
     >
       {{ t('programa.conciertos') }}
     </button>
@@ -39,9 +39,9 @@ const setFiltro = (valor: string) => {
       type="button"
       @click="setFiltro('taller')"
       :class="filtroActivo === 'taller'
-        ? 'bg-black text-white'
-        : 'bg-white text-black'"
-      class="px-6 py-3 border border-black font-bold uppercase transition"
+          ? 'bg-[#F22E2E] text-white'
+          : 'bg-white text-[#F22E2E]'"
+      class="px-6 py-3 border border-[#F22E2E] font-bold uppercase transition"
     >
       {{ t('programa.talleres') }}
     </button>
@@ -50,9 +50,9 @@ const setFiltro = (valor: string) => {
       type="button"
       @click="setFiltro('charla')"
       :class="filtroActivo === 'charla'
-        ? 'bg-black text-white'
-        : 'bg-white text-black'"
-      class="px-6 py-3 border border-black font-bold uppercase transition"
+          ? 'bg-[#F22E2E] text-white'
+          : 'bg-white text-[#F22E2E]'"
+      class="px-6 py-3 border border-[#F22E2E] font-bold uppercase transition"
     >
       {{ t('programa.charlas') }}
     </button>

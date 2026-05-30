@@ -38,12 +38,17 @@ const props = defineProps({
 
     </div>
 
-    <h3 class="text-xl font-black uppercase transition-all group-hover:underline">
+    <h3
+      class="text-xl font-black uppercase text-[#F22E2E] transition-all group-hover:underline"
+    >
       {{ t(`merchandising.productos.${props.producto.id}`) }}
     </h3>
 
-    <p class="italic text-m font-light mt-2">
+    <p
+      class="italic text-m font-light mt-2 text-black"
+    >
       {{ props.producto.precio }}
     </p>
+
   </RouterLink>
 </template>

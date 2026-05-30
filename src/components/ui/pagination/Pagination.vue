@@ -29,41 +29,48 @@ const goToPage = (page: number) => {
 
 <template>
   <div class="flex items-center justify-center gap-3">
+
+    <!-- ANTERIOR -->
     <Button
       variant="outline"
       size="sm"
       :disabled="currentPage === 1"
-      class="rounded-none border-black text-black hover:bg-black hover:text-white"
+      class="rounded-none border-[#F22E2E] bg-white text-[#F22E2E] hover:bg-[#F22E2E] hover:border-[#F22E2E] hover:text-white"
       @click="goToPage(currentPage - 1)"
     >
       <ChevronLeft class="w-4 h-4" />
       Anterior
     </Button>
 
+    <!-- PAGINAS -->
     <div class="flex items-center gap-2">
       <Button
         v-for="page in pageNumbers"
         :key="page"
-        :variant="page === currentPage ? 'default' : 'outline'"
+        variant="outline"
         size="sm"
-        :class="page === currentPage
-          ? 'rounded-none border border-black bg-black text-white hover:bg-black/90'
-          : 'rounded-none border border-black text-black hover:bg-black hover:text-white'"
+        :class="
+          page === currentPage
+            ? 'rounded-none border-[#F22E2E] bg-[#F22E2E] text-white hover:bg-[#F22E2E] hover:border-[#F22E2E] hover:text-white'
+            : 'rounded-none border-[#F22E2E] bg-white text-[#F22E2E] hover:bg-[#F22E2E] hover:border-[#F22E2E] hover:text-white'
+        "
         @click="goToPage(page)"
       >
         {{ page }}
       </Button>
     </div>
 
+    <!-- SIGUIENTE -->
     <Button
       variant="outline"
       size="sm"
       :disabled="currentPage === totalPages"
-      class="rounded-none border-black text-black hover:bg-black hover:text-white"
+      class="rounded-none border-[#F22E2E] bg-white text-[#F22E2E] hover:bg-[#F22E2E] hover:border-[#F22E2E] hover:text-white"
       @click="goToPage(currentPage + 1)"
     >
       Siguiente
       <ChevronRight class="w-4 h-4" />
     </Button>
+
   </div>
 </template>

@@ -22,6 +22,16 @@ const modalAbierto = ref(false)
 const abrirInscripcion = () => {
   modalAbierto.value = true
 }
+
+const colorDia = computed(() => {
+  if (!evento) return '#000000'
+
+  if (evento.diaSlug === 'viernes') return '#0669BF'
+  if (evento.diaSlug === 'sabado') return '#F22E2E'
+  if (evento.diaSlug === 'domingo') return '#F25EA3'
+
+  return '#000000'
+})
 </script>
 
 <template>
@@ -31,7 +41,7 @@ const abrirInscripcion = () => {
   >
     <section class="max-w-6xl mx-auto">
 
-      <!-- volver -->
+      <!-- VOLVER -->
       <RouterLink
         :to="volverPrograma"
         class="flex items-center gap-3 uppercase font-bold text-sm hover:opacity-60 transition"
@@ -40,17 +50,20 @@ const abrirInscripcion = () => {
         {{ t('programa.volver') }}
       </RouterLink>
 
-      <!-- hero -->
+      <!-- HERO -->
       <section class="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-10 items-start">
 
-        <!-- izquierda -->
+        <!-- IZQUIERDA -->
         <div>
 
           <p class="italic font-light text-sm mb-4">
             {{ textoEvento(evento, 'dia') }} · {{ textoEvento(evento, 'categoria') }}
           </p>
 
-          <h1 class="text-7xl font-black uppercase leading-none">
+          <h1
+            class="text-7xl font-black uppercase leading-none"
+            :style="{ color: colorDia }"
+          >
             {{ textoEvento(evento, 'titulo') }}
           </h1>
 
@@ -62,27 +75,65 @@ const abrirInscripcion = () => {
 
             <div class="border border-black p-5">
               <Clock3 class="w-5 h-5 mb-3" />
-              <p class="text-xs uppercase opacity-60">{{ t('programa.hora') }}</p>
-              <p class="font-bold text-xl">{{ evento.hora }}</p>
+
+              <p class="text-xs uppercase opacity-60">
+                {{ t('programa.hora') }}
+              </p>
+
+              <p
+                class="font-bold text-xl"
+                :style="{ color: colorDia }"
+              >
+                {{ evento.hora }}
+              </p>
             </div>
 
             <div class="border border-black p-5">
               <MapPin class="w-5 h-5 mb-3" />
-              <p class="text-xs uppercase opacity-60">{{ t('programa.espacio') }}</p>
-              <p class="font-bold text-xl">{{ evento.espacio }}</p>
+
+              <p class="text-xs uppercase opacity-60">
+                {{ t('programa.espacio') }}
+              </p>
+
+              <p
+                class="font-bold text-xl"
+                :style="{ color: colorDia }"
+              >
+                {{ evento.espacio }}
+              </p>
             </div>
 
             <div class="border border-black p-5">
               <CalendarDays class="w-5 h-5 mb-3" />
-              <p class="text-xs uppercase opacity-60">{{ t('programa.duracion') }}</p>
-              <p class="font-bold text-xl">{{ evento.duracion }}</p>
+
+              <p class="text-xs uppercase opacity-60">
+                {{ t('programa.duracion') }}
+              </p>
+
+              <p
+                class="font-bold text-xl"
+                :style="{ color: colorDia }"
+              >
+                {{ evento.duracion }}
+              </p>
             </div>
 
             <div class="border border-black p-5">
               <Users class="w-5 h-5 mb-3" />
-              <p class="text-xs uppercase opacity-60">{{ t('programa.acceso') }}</p>
-              <p class="font-bold text-xl">
-                {{ evento.inscripcion ? t('programa.aforoLimitado') : t('programa.libreAcceso') }}
+
+              <p class="text-xs uppercase opacity-60">
+                {{ t('programa.acceso') }}
+              </p>
+
+              <p
+                class="font-bold text-xl"
+                :style="{ color: colorDia }"
+              >
+                {{
+                  evento.inscripcion
+                    ? t('programa.aforoLimitado')
+                    : t('programa.libreAcceso')
+                }}
               </p>
             </div>
 
@@ -92,33 +143,34 @@ const abrirInscripcion = () => {
             v-if="evento.inscripcion"
             type="button"
             @click="abrirInscripcion"
-            class="mt-10 bg-black text-white px-10 py-5 uppercase font-black hover:opacity-80 transition"
+            class="mt-10 text-white px-10 py-5 uppercase font-black transition hover:opacity-80"
+            :style="{ backgroundColor: colorDia }"
           >
             {{ t('programa.inscribirme') }}
           </button>
 
         </div>
 
-        <!-- derecha -->
+        <!-- DERECHA -->
         <div class="aspect-4/5 overflow-hidden">
 
-        <!-- CONCIERTOS -->
-        <img
+          <!-- CONCIERTOS -->
+          <img
             v-if="evento.categoriaSlug === 'concierto' && evento.imagen"
             :src="evento.imagen"
             :alt="textoEvento(evento, 'titulo')"
             class="w-full h-full object-contain object-center"
-        />
-        
-        <!-- fallback -->
-        <div
+          />
+
+          <!-- FALLBACK -->
+          <div
             v-else
             class="w-full h-full bg-black flex items-center justify-center"
-        >
+          >
             <h2 class="text-white text-5xl font-black uppercase text-center px-10">
-            {{ textoEvento(evento, 'titulo') }}
+              {{ textoEvento(evento, 'titulo') }}
             </h2>
-        </div>
+          </div>
 
         </div>
 

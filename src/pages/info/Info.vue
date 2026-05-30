@@ -23,30 +23,30 @@ import { t } from '@/components/data/idiomas'
   class="w-full flex flex-col gap-6"
 >
 
-  <AccordionItem value="normas" class="w-full border border-black px-6">
-          <AccordionTrigger class="w-full italic text-xl font-extralight">
+  <AccordionItem value="normas" class="w-full border border-[#F22E2E] px-6">
+          <AccordionTrigger class="w-full italic text-xl font-extralight text-[#F22E2E]">
             {{ t('info.normas') }}
           </AccordionTrigger>
-          <AccordionContent class="pb-6 text-lg leading-relaxed">
+          <AccordionContent class="pb-6 text-lg leading-relaxed text-black">
             {{ t('info.normasTexto') }}
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="compra" class="w-full border border-black px-6">
-          <AccordionTrigger class="w-full italic text-xl font-extralight">
+        <AccordionItem value="compra" class="w-full border border-[#F22E2E] px-6">
+          <AccordionTrigger class="w-full italic text-xl font-extralight text-[#F22E2E]">
             {{ t('info.compra') }}
           </AccordionTrigger>
-          <AccordionContent class="pb-6 text-lg leading-relaxed">
+          <AccordionContent class="pb-6 text-lg leading-relaxed text-black">
             {{ t('info.compraTexto') }}
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="recinto" class="w-full border border-black px-6">
-  <AccordionTrigger class="w-full italic text-xl font-extralight">
+        <AccordionItem value="recinto" class="w-full border border-[#F22E2E] px-6">
+  <AccordionTrigger class="w-full italic text-xl font-extralight text-[#F22E2E]">
     {{ t('info.recinto') }}
   </AccordionTrigger>
 
-  <AccordionContent class="pb-6 text-lg leading-relaxed space-y-6">
+  <AccordionContent class="pb-6 text-lg leading-relaxed space-y-6 text-black">
 
     <p>
       {{ t('info.recintoTexto1') }}
@@ -59,7 +59,7 @@ import { t } from '@/components/data/idiomas'
     <a
       href="/documentos/mapa-esclat.pdf"
       target="_blank"
-      class="inline-block border border-black px-6 py-3 uppercase text-sm font-medium hover:bg-black hover:text-white transition"
+      class="inline-block border border-[#F22E2E] px-6 py-3 uppercase text-sm font-medium hover:bg-[#F22E2E] hover:text-white transition"
     >
       {{ t('info.verMapa') }}
     </a>
@@ -67,20 +67,20 @@ import { t } from '@/components/data/idiomas'
   </AccordionContent>
 </AccordionItem>
 
-        <AccordionItem value="pago" class="w-full border border-black px-6">
-          <AccordionTrigger class="w-full italic text-xl font-extralight">
+        <AccordionItem value="pago" class="w-full border border-[#F22E2E] px-6">
+          <AccordionTrigger class="w-full italic text-xl font-extralight text-[#F22E2E]">
             {{ t('info.pago') }}
           </AccordionTrigger>
-          <AccordionContent class="pb-6 text-lg leading-relaxed">
+          <AccordionContent class="pb-6 text-lg leading-relaxed text-black">
             {{ t('info.pagoTexto') }}
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="pulseras" class="w-full border border-black px-6">
-          <AccordionTrigger class="w-full italic text-xl font-extralight">
+        <AccordionItem value="pulseras" class="w-full border border-[#F22E2E] px-6">
+          <AccordionTrigger class="w-full italic text-xl font-extralight text-[#F22E2E]">
             {{ t('info.pulseras') }}
           </AccordionTrigger>
-          <AccordionContent class="pb-6 text-lg leading-relaxed">
+          <AccordionContent class="pb-6 text-lg leading-relaxed text-black">
             {{ t('info.pulserasTexto') }}
           </AccordionContent>
         </AccordionItem>

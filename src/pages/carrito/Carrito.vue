@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { t } from '@/components/data/idiomas'
 
-
 const parsePrecio = (precio: string) => {
   const limpio = precio.replace('€', '').replace('.', '').replace(',', '.').trim()
 
@@ -67,6 +66,10 @@ const nombreItem = (item: any) => {
   return `${t('comun.entrada')} ${t(`entradas.tarjetas.${entradaId}.titulo`)}`
 }
 
+const colorEntrada = (item: any) => {
+  return item.producto?.color || '#000000'
+}
+
 </script>
 
 <template>
@@ -74,19 +77,13 @@ const nombreItem = (item: any) => {
 
     <section class="max-w-6xl mx-auto">
 
-      <h1 class="text-5xl font-black mb-8">
+      <h1 class="text-5xl font-black mb-8 text-[#F22E2E]">
         {{ t('carrito.titulo') }}
       </h1>
 
       <div
         v-if="carrito.length"
-        class="mb-10"
-      >
-      </div>
-
-      <div
-        v-if="carrito.length"
-        class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-6 items-center border-b pb-4 text-sm uppercase tracking-wide"
+        class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-6 items-center border-b border-[#F22E2E] pb-4 text-sm uppercase tracking-wide text-black"
       >
         <span>{{ t('comun.producto') }}</span>
         <span class="text-center">{{ t('comun.cantidad') }}</span>
@@ -101,37 +98,62 @@ const nombreItem = (item: any) => {
         <div
           v-for="(item, index) in carrito"
           :key="`${item.producto?.id || index}-${item.talla || 'sin-talla'}-${index}`"
-          class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-6 items-center border-b pb-6"
+          class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-6 items-center border-b border-[#F22E2E] pb-6"
         >
           <div class="flex gap-6 items-center">
+
             <img
               v-if="item.producto.imagen"
               :src="item.producto.imagen"
               class="w-28 h-28 object-cover"
             />
 
-            <div
-              v-else
-              class="w-28 h-28 border border-black flex items-center justify-center text-xs uppercase font-bold text-center p-3"
-            >
-              {{ t('comun.entrada') }}
-            </div>
+           <div
+            v-else-if="item.producto.color === 'abono'"
+            class="w-28 h-28 border-2 border-[#F22E2E] bg-white text-[#F22E2E] flex flex-col items-center justify-center font-black uppercase text-center"
+          >
+            <span class="text-xs">ABONO</span>
+          </div>
+
+          <div
+            v-else-if="item.producto.color === 'vip'"
+            class="w-28 h-28 border-2 border-[#0669BF] bg-white text-[#0669BF] flex flex-col items-center justify-center font-black uppercase text-center"
+          >
+            <span class="text-xs">VIP</span>
+          </div>
+
+          <div
+            v-else
+            class="w-28 h-28 flex flex-col items-center justify-center text-white font-black uppercase text-center"
+            :style="{
+              backgroundColor: colorEntrada(item)
+            }"
+          >
+            <span class="text-xs">ENTRADA</span>
+          </div>
 
             <div>
-              <h2 class="font-black uppercase">
+
+              <h2 class="font-black uppercase text-[#F22E2E]">
                 {{ nombreItem(item) }}
               </h2>
 
-              <p v-if="item.talla" class="text-sm mt-1">
+              <p
+                v-if="item.talla"
+                class="text-sm mt-1"
+              >
                 {{ t('comun.talla') }}: {{ item.talla }}
               </p>
+
             </div>
+
           </div>
 
           <div class="flex items-center justify-center gap-3">
+
             <button
               @click="restarCantidad(index)"
-              class="border border-black px-3 py-1"
+              class="border border-[#F22E2E] text-[#F22E2E] px-3 py-1 hover:bg-[#F22E2E] hover:text-white transition"
             >
               -
             </button>
@@ -142,34 +164,38 @@ const nombreItem = (item: any) => {
 
             <button
               @click="sumarCantidad(index)"
-              class="border border-black px-3 py-1"
+              class="border border-[#F22E2E] text-[#F22E2E] px-3 py-1 hover:bg-[#F22E2E] hover:text-white transition"
             >
               +
             </button>
+
           </div>
 
-          <p class="text-center text-lg italic">
+          <p class="text-center text-lg italic text-black">
             {{ item.producto.precio }}
           </p>
 
           <div class="flex flex-col items-end gap-3">
-            <p class="text-right text-lg italic">
+
+            <p class="text-right text-lg italic text-[#F22E2E]">
               {{ formatearPrecio(parsePrecio(item.producto.precio) * item.cantidad) }}
             </p>
 
             <button
               @click="eliminarProducto(index)"
-              class="uppercase text-sm underline hover:opacity-70 transition"
+              class="uppercase text-sm underline text-[#F22E2E] hover:opacity-70 transition"
             >
               {{ t('comun.eliminar') }}
             </button>
+
           </div>
+
         </div>
       </div>
 
       <div
         v-else
-        class="border border-black px-8 py-10"
+        class="border border-[#F22E2E] px-8 py-10"
       >
         <p class="text-lg mb-6">
           {{ t('carrito.vacio') }}
@@ -177,7 +203,7 @@ const nombreItem = (item: any) => {
 
         <RouterLink
           to="/merchandising"
-          class="uppercase underline hover:opacity-70 transition"
+          class="uppercase underline text-[#F22E2E] hover:opacity-70 transition"
         >
           {{ t('carrito.seguir') }}
         </RouterLink>
@@ -187,19 +213,21 @@ const nombreItem = (item: any) => {
         v-if="carrito.length"
         class="flex justify-between items-center mt-16"
       >
+
         <RouterLink
           to="/merchandising"
-          class="uppercase underline hover:opacity-70 transition"
+          class="uppercase underline text-[#F22E2E] hover:opacity-70 transition"
         >
           {{ t('carrito.seguir') }}
         </RouterLink>
 
         <RouterLink
           to="/checkout"
-          class="border border-black px-10 py-5 uppercase hover:bg-black hover:text-white transition"
+          class="border border-[#F22E2E] bg-[#F22E2E] text-white px-10 py-5 uppercase hover:bg-white hover:text-[#F22E2E] transition"
         >
           {{ t('carrito.tramitar') }}
         </RouterLink>
+
       </div>
 
     </section>

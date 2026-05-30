@@ -10,46 +10,72 @@ const route = useRoute()
 const artistaIndex = computed(() => {
   const slug = Number(route.params.slug)
 
-  return artistas.findIndex(artista => artista.id === slug)
+  return artistas.findIndex(
+    artista => artista.id === slug,
+  )
 })
 
 const artista = computed(() => {
-  return artistaIndex.value >= 0 ? artistas[artistaIndex.value] : undefined
+  return artistaIndex.value >= 0
+    ? artistas[artistaIndex.value]
+    : undefined
 })
 
 const anterior = computed(() => {
-  return artistaIndex.value > 0 ? artistas[artistaIndex.value - 1] : undefined
+  return artistaIndex.value > 0
+    ? artistas[artistaIndex.value - 1]
+    : undefined
 })
 
 const siguiente = computed(() => {
-  return artistaIndex.value >= 0 && artistaIndex.value < artistas.length - 1
+  return artistaIndex.value >= 0 &&
+    artistaIndex.value < artistas.length - 1
     ? artistas[artistaIndex.value + 1]
     : undefined
+})
+
+const colorDia = computed(() => {
+  if (!artista.value) return '#000000'
+
+  if (artista.value.dia.includes('23'))
+    return '#0669BF'
+
+  if (artista.value.dia.includes('24'))
+    return '#F22E2E'
+
+  if (artista.value.dia.includes('25'))
+    return '#F25EA3'
+
+  return '#000000'
 })
 </script>
 
 <template>
   <section
     v-if="artista"
-    class="bg-white text-black min-h-screen px-14 py-10"
+    class="bg-white min-h-screen px-14 py-10"
   >
+
     <!-- NAV TOP -->
     <div class="flex items-center justify-between mb-20">
 
-      <!-- volver a artistas -->
+      <!-- VOLVER -->
       <RouterLink
         to="/artistas"
         class="hover:opacity-60 transition"
+        :style="{ color: colorDia }"
       >
         <LayoutGrid class="w-8 h-8" />
       </RouterLink>
 
-      <!-- flechas -->
+      <!-- FLECHAS -->
       <div class="flex gap-4">
+
         <RouterLink
           v-if="anterior"
           :to="`/artistas/${anterior.id}`"
           class="hover:opacity-60 transition"
+          :style="{ color: colorDia }"
         >
           <ChevronLeft class="w-10 h-10" />
         </RouterLink>
@@ -58,9 +84,11 @@ const siguiente = computed(() => {
           v-if="siguiente"
           :to="`/artistas/${siguiente.id}`"
           class="hover:opacity-60 transition"
+          :style="{ color: colorDia }"
         >
           <ChevronRight class="w-10 h-10" />
         </RouterLink>
+
       </div>
 
     </div>
@@ -79,15 +107,24 @@ const siguiente = computed(() => {
 
       <!-- TEXTO -->
       <div>
-        <h2 class="text-5xl font-black uppercase mb-4">
+
+        <h2
+          class="text-5xl font-black uppercase mb-4"
+          :style="{ color: colorDia }"
+        >
           {{ artista.nombre }}
         </h2>
 
-        <p class="italic font-extralight text-black uppercase mb-6">
+        <p
+          class="italic font-extralight uppercase mb-6 text-black"
+        >
           {{ artista.dia }}
         </p>
 
-        <p class="text-lg font-medium text-black mb-4">
+        <p
+          class="text-lg font-medium mb-4"
+          :style="{ color: colorDia }"
+        >
           {{ textoArtista(artista, 'disciplina') }}
         </p>
 
@@ -96,23 +133,34 @@ const siguiente = computed(() => {
         </p>
 
         <div>
-          <h3 class="text-2xl font-black uppercase mb-4">
+
+          <h3
+            class="text-2xl font-black uppercase mb-4"
+            :style="{ color: colorDia }"
+          >
             {{ t('artistas.actividades') }}
           </h3>
 
-          <ul class="space-y-2 font-light">
+          <ul class="space-y-2 font-light text-black">
+
             <li
               v-for="actividad in actividadesArtista(artista)"
               :key="actividad"
             >
               • {{ actividad }}
             </li>
+
           </ul>
+
         </div>
+
       </div>
 
       <!-- SPOTIFY -->
-      <div v-if="artista.spotifyEmbed" class="h-full">
+      <div
+        v-if="artista.spotifyEmbed"
+        class="h-full"
+      >
         <iframe
           :src="artista.spotifyEmbed"
           width="100%"

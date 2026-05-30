@@ -92,9 +92,9 @@ const abrirInscripcion = (evento: (typeof eventos)[number]) => {
       <button
         @click="diaActivo = 'todos'"
         :class="diaActivo === 'todos'
-          ? 'bg-black text-white'
-          : 'bg-white text-black'"
-        class="px-10 py-4 border border-black font-black uppercase transition hover:bg-black hover:text-white"
+          ? 'bg-[#F22E2E] text-white'
+          : 'bg-white text-[#F22E2E]'"
+        class="px-10 py-4 border border-[#F22E2E] font-black uppercase transition"
       >
         {{ t('programa.todos') }}
       </button>
@@ -102,9 +102,9 @@ const abrirInscripcion = (evento: (typeof eventos)[number]) => {
       <button
         @click="diaActivo = 'viernes'"
         :class="diaActivo === 'viernes'
-          ? 'bg-black text-white'
-          : 'bg-white text-black'"
-        class="px-10 py-4 border border-black font-black uppercase transition hover:bg-black hover:text-white"
+          ? 'bg-[#0669BF] text-white'
+          : 'bg-white text-[#0669BF]'"
+        class="px-10 py-4 border border-[#0669BF] font-black uppercase transition"
       >
         {{ t('programa.viernes') }}
       </button>
@@ -112,9 +112,9 @@ const abrirInscripcion = (evento: (typeof eventos)[number]) => {
       <button
         @click="diaActivo = 'sabado'"
         :class="diaActivo === 'sabado'
-          ? 'bg-black text-white'
-          : 'bg-white text-black'"
-        class="px-10 py-4 border border-black font-black uppercase transition hover:bg-black hover:text-white"
+          ? 'bg-[#F22E2E] text-white'
+          : 'bg-white text-[#F22E2E]'"
+        class="px-10 py-4 border border-[#F22E2E] font-black uppercase transition"
       >
         {{ t('programa.sabado') }}
       </button>
@@ -122,9 +122,9 @@ const abrirInscripcion = (evento: (typeof eventos)[number]) => {
       <button
         @click="diaActivo = 'domingo'"
         :class="diaActivo === 'domingo'
-          ? 'bg-black text-white'
-          : 'bg-white text-black'"
-        class="px-10 py-4 border border-black font-black uppercase transition hover:bg-black hover:text-white"
+          ? 'bg-[#F25EA3] text-white'
+          : 'bg-white text-[#F25EA3]'"
+        class="px-10 py-4 border border-[#F25EA3] font-black uppercase transition"
       >
         {{ t('programa.domingo') }}
       </button>

@@ -14,7 +14,7 @@ export const entradas: Entrada[] = [
     nombre: 'Entrada Viernes 23',
     titulo: 'Viernes 23',
     descripcion: 'Acceso completo al festival durante la jornada del viernes.',
-    precio: '15€',
+    precio: '15,00€',
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ export const entradas: Entrada[] = [
     nombre: 'Entrada Sábado 24',
     titulo: 'Sábado 24',
     descripcion: 'Acceso completo al festival durante la jornada del sábado.',
-    precio: '15€',
+    precio: '15,00€',
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const entradas: Entrada[] = [
     nombre: 'Entrada Domingo 25',
     titulo: 'Domingo 25',
     descripcion: 'Acceso completo al festival durante la jornada del domingo.',
-    precio: '15€',
+    precio: '15,00€',
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ export const entradas: Entrada[] = [
     nombre: 'Abono ESCLAT',
     titulo: 'Abono',
     descripcion: 'Vive la experiencia completa ESCLAT durante los tres días.',
-    precio: '35€',
+    precio: '35,00€',
   },
   {
     id: 5,
@@ -46,6 +46,6 @@ export const entradas: Entrada[] = [
     nombre: 'Entrada VIP',
     titulo: 'VIP',
     descripcion: 'Acceso prioritario, zona preferente y detalle exclusivo ESCLAT.',
-    precio: '60€',
+    precio: '60,00€',
   },
 ]

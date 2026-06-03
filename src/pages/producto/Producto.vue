@@ -28,7 +28,23 @@ const restar = () => {
   if (cantidad.value > 1) cantidad.value--
 }
 
-const imagenSeleccionada = ref(producto?.imagen)
+const imagenSeleccionada = ref(
+  producto?.galeria?.[0]?.imagen || producto?.variantes?.[0]?.imagen || producto?.imagen || ''
+)
+
+const colorSeleccionado = ref(
+  producto?.variantes?.[0]?.color || producto?.galeria?.[0]?.color || ''
+)
+
+const seleccionarColor = (variante: any) => {
+  colorSeleccionado.value = variante.color
+  imagenSeleccionada.value = variante.imagen
+}
+
+const seleccionarImagen = (item: any) => {
+  imagenSeleccionada.value = item.imagen
+  colorSeleccionado.value = item.color
+}
 
 const tallaSeleccionada = ref('')
 
@@ -56,10 +72,11 @@ const añadirCarrito = () => {
   const carritoActual = leerCarrito()
 
   carritoActual.push({
-    producto,
-    cantidad: cantidad.value,
-    talla: tallaSeleccionada.value,
-  })
+  producto,
+  cantidad: cantidad.value,
+  talla: tallaSeleccionada.value,
+  color: colorSeleccionado.value,
+})
 
   localStorage.setItem('carrito', JSON.stringify(carritoActual))
 
@@ -76,31 +93,59 @@ const añadirCarrito = () => {
     >
 
       <!-- GALERÍA -->
-      <div>
+<div>
 
-        <img
-          :src="imagenSeleccionada"
-          :alt="t(`merchandising.productos.${producto.id}`)"
-          class="w-full h-90 sm:h-90 md:h-130 lg:h-120 object-cover"
-        />
+  <img
+    :src="imagenSeleccionada"
+    :alt="t(`merchandising.productos.${producto.id}`)"
+    class="w-full h-90 sm:h-90 md:h-130 lg:h-120 object-cover"
+  />
 
-        <div class="flex gap-3 md:gap-6 mt-4 md:mt-6">
+  <div class="grid grid-cols-4 gap-3 md:gap-6 mt-4 md:mt-6">
 
-          <img
-            :src="producto.imagen"
-            @click="imagenSeleccionada = producto.imagen"
-            class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover cursor-pointer transition-opacity hover:opacity-80"
-          />
+    <template v-if="producto.galeria">
 
-          <img
-            :src="producto.imagenHover"
-            @click="imagenSeleccionada = producto.imagenHover"
-            class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover cursor-pointer transition-opacity hover:opacity-80"
-          />
+  <img
+    v-for="item in producto.galeria"
+    :key="item.imagen"
+    :src="item.imagen"
+    @click="seleccionarImagen(item)"
+    class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover cursor-pointer transition-opacity hover:opacity-80"
+  />
 
-        </div>
+</template>
 
-      </div>
+<template v-else-if="producto.variantes">
+
+  <img
+    v-for="variante in producto.variantes"
+    :key="variante.color"
+    :src="variante.imagen"
+    @click="seleccionarColor(variante)"
+    class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover cursor-pointer transition-opacity hover:opacity-80"
+  />
+
+</template>
+
+    <template v-else>
+
+      <img
+        :src="producto.imagen"
+        @click="imagenSeleccionada = producto.imagen"
+        class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover cursor-pointer transition-opacity hover:opacity-80"
+      />
+
+      <img
+        :src="producto.imagenHover"
+        @click="imagenSeleccionada = producto.imagenHover"
+        class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover cursor-pointer transition-opacity hover:opacity-80"
+      />
+
+    </template>
+
+  </div>
+
+</div>
 
       <!-- INFO -->
       <div>
@@ -136,6 +181,34 @@ const añadirCarrito = () => {
               ]"
             >
               {{ talla }}
+            </button>
+
+          </div>
+        </div>
+
+
+        <div
+          v-if="producto.variantes"
+          class="mb-10"
+        >
+          <p class="uppercase text-sm mb-4">
+            Color
+          </p>
+
+          <div class="flex gap-3 flex-wrap">
+
+            <button
+              v-for="variante in producto.variantes"
+              :key="variante.color"
+              @click="seleccionarColor(variante)"
+              :class="[
+                'border px-4 md:px-6 py-2 md:py-3 text-sm md:text-base transition',
+                colorSeleccionado === variante.color
+                  ? 'bg-[#F22E2E] text-white border-[#F22E2E]'
+                  : 'bg-white text-[#F22E2E] border-[#F22E2E] hover:bg-[#F22E2E] hover:text-white'
+              ]"
+            >
+              {{ variante.color }}
             </button>
 
           </div>

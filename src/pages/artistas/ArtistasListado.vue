@@ -18,31 +18,32 @@ const artistasPaginados = computed(() => {
 </script>
 
 <template>
-  <section class="px-4 sm:px-6 md:px-8 lg:px-10 text-center pb-10 md:pb-16">
+  <main>
+    <section class="px-4 sm:px-6 md:px-8 lg:px-10 text-center pb-10 md:pb-16">
 
-    <h1
-      class="text-3xl sm:text-4xl md:text-5xl font-bold py-6 md:py-8"
-    >
-      {{ t('artistas.titulo') }}
-    </h1>
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-bold py-6 md:py-8"
+        >
+          {{ t('artistas.titulo') }}
+        </h1>
 
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-    >
-      <TarjetaArtista
-        v-for="artista in artistasPaginados"
-        :key="artista.id"
-        :artista="artista"
-      />
-    </div>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+        >
+          <TarjetaArtista
+            v-for="artista in artistasPaginados"
+            :key="artista.id"
+            :artista="artista"
+          />
+        </div>
 
-    <Pagination
-      v-if="totalPages > 1"
-      :current-page="currentPage"
-      :total-pages="totalPages"
-      class="mt-8 md:mt-12"
-      @update:current-page="currentPage = $event"
-    />
-
-  </section>
+        <Pagination
+          v-if="totalPages > 1"
+          :current-page="currentPage"
+          :total-pages="totalPages"
+          class="mt-8 md:mt-12"
+          @update:current-page="currentPage = $event"
+        />
+      </section>
+  </main>
 </template>

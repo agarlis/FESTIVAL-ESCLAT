@@ -122,4 +122,11 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+main {
+  background-image: url('@/assets/imagenes/patronfondo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
+}
+

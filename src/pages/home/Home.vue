@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
 import { t } from '@/components/data/idiomas'
+
+import videoEsclat from '@/assets/videos/videoEsclat.mp4'
 </script>
 
 <template>
@@ -13,7 +15,7 @@ import { t } from '@/components/data/idiomas'
     <section class="max-w-5xl mx-auto px-6 md:px-8 py-8 md:py-12 text-center">
 
       <h1
-        class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-[#F22E2E]"
+        class=" text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-[#F22E2E]"
       >
         {{ t('home.titulo') }}
       </h1>
@@ -37,15 +39,15 @@ import { t } from '@/components/data/idiomas'
     <!-- VIDEO -->
     <section class="max-w-6xl mx-auto px-6 md:px-12 lg:px-24">
 
-      <div
-        class="w-full h-56 sm:h-72 md:h-96 lg:h-150 bg-black flex items-center justify-center"
+      <video
+        class="w-full object-contain"
+        controls
+        autoplay
+        muted
+        loop
       >
-        <p
-          class="text-white text-lg sm:text-xl md:text-2xl font-black uppercase tracking-wider text-center px-4"
-        >
-          Video ESCLAT
-        </p>
-      </div>
+        <source :src="videoEsclat" type="video/mp4" />
+      </video>
 
     </section>
 

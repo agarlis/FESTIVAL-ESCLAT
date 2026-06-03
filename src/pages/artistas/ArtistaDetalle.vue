@@ -51,144 +51,146 @@ const colorDia = computed(() => {
 </script>
 
 <template>
-  <section
-    v-if="artista"
-    class="bg-white min-h-screen px-4 sm:px-6 md:px-8 lg:px-14 py-6 md:py-10"
-  >
+  <main class="bg-white text-black">
+    <section
+      v-if="artista"
+      class="min-h-screen px-4 sm:px-6 md:px-8 lg:px-14 py-6 md:py-10"
+    >
 
-    <!-- NAV TOP -->
-    <div class="flex items-center justify-between mb-8 md:mb-20">
+      <!-- NAV TOP -->
+      <div class="flex items-center justify-between mb-8 md:mb-20">
 
-      <!-- VOLVER -->
-      <RouterLink
-        to="/artistas"
-        class="hover:opacity-60 transition"
-        :style="{ color: colorDia }"
-      >
-        <LayoutGrid class="w-6 h-6 md:w-8 md:h-8" />
-      </RouterLink>
-
-      <!-- FLECHAS -->
-      <div class="flex gap-4">
-
+        <!-- VOLVER -->
         <RouterLink
-          v-if="anterior"
-          :to="`/artistas/${anterior.id}`"
+          to="/artistas"
           class="hover:opacity-60 transition"
           :style="{ color: colorDia }"
         >
-          <ChevronLeft class="w-8 h-8 md:w-10 md:h-10" />
+          <LayoutGrid class="w-6 h-6 md:w-8 md:h-8" />
         </RouterLink>
 
-        <RouterLink
-          v-if="siguiente"
-          :to="`/artistas/${siguiente.id}`"
-          class="hover:opacity-60 transition"
-          :style="{ color: colorDia }"
-        >
-          <ChevronRight class="w-8 h-8 md:w-10 md:h-10" />
-        </RouterLink>
+        <!-- FLECHAS -->
+        <div class="flex gap-4">
 
-      </div>
-
-    </div>
-
-    <!-- CONTENIDO -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
-
-      <!-- IMAGEN -->
-      <div>
-        <img
-          :src="artista.imagen"
-          :alt="artista.nombre"
-          class="w-full h-auto object-contain"
-        />
-      </div>
-
-      <!-- TEXTO -->
-      <div>
-
-        <h2
-          class="text-3xl sm:text-4xl md:text-5xl font-black uppercase mb-4"
-          :style="{ color: colorDia }"
-        >
-          {{ artista.nombre }}
-        </h2>
-
-        <p
-          class="italic font-extralight uppercase mb-4 md:mb-6 text-black text-sm md:text-base"
-        >
-          {{ artista.dia }}
-        </p>
-
-        <p
-          class="text-base md:text-lg font-medium mb-4"
-          :style="{ color: colorDia }"
-        >
-          {{ textoArtista(artista, 'disciplina') }}
-        </p>
-
-        <p class="text-base md:text-lg text-black mb-8 leading-relaxed">
-          {{ textoArtista(artista, 'bio') }}
-        </p>
-
-        <div>
-
-          <h3
-            class="text-xl md:text-2xl font-black uppercase mb-4"
+          <RouterLink
+            v-if="anterior"
+            :to="`/artistas/${anterior.id}`"
+            class="hover:opacity-60 transition"
             :style="{ color: colorDia }"
           >
-            {{ t('artistas.actividades') }}
-          </h3>
+            <ChevronLeft class="w-8 h-8 md:w-10 md:h-10" />
+          </RouterLink>
 
-          <ul class="space-y-2 font-light text-black">
-
-            <li
-              v-for="actividad in actividadesArtista(artista)"
-              :key="actividad"
-            >
-              • {{ actividad }}
-            </li>
-
-          </ul>
+          <RouterLink
+            v-if="siguiente"
+            :to="`/artistas/${siguiente.id}`"
+            class="hover:opacity-60 transition"
+            :style="{ color: colorDia }"
+          >
+            <ChevronRight class="w-8 h-8 md:w-10 md:h-10" />
+          </RouterLink>
 
         </div>
 
       </div>
 
-      <!-- SPOTIFY -->
+      <!-- CONTENIDO -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
+
+        <!-- IMAGEN -->
+        <div>
+          <img
+            :src="artista.imagen"
+            :alt="artista.nombre"
+            class="w-full h-auto object-contain"
+          />
+        </div>
+
+        <!-- TEXTO -->
+        <div>
+
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-black uppercase mb-4"
+            :style="{ color: colorDia }"
+          >
+            {{ artista.nombre }}
+          </h2>
+
+          <p
+            class="italic font-extralight uppercase mb-4 md:mb-6 text-black text-sm md:text-base"
+          >
+            {{ artista.dia }}
+          </p>
+
+          <p
+            class="text-base md:text-lg font-medium mb-4"
+            :style="{ color: colorDia }"
+          >
+            {{ textoArtista(artista, 'disciplina') }}
+          </p>
+
+          <p class="text-base md:text-lg text-black mb-8 leading-relaxed">
+            {{ textoArtista(artista, 'bio') }}
+          </p>
+
+          <div>
+
+            <h3
+              class="text-xl md:text-2xl font-black uppercase mb-4"
+              :style="{ color: colorDia }"
+            >
+              {{ t('artistas.actividades') }}
+            </h3>
+
+            <ul class="space-y-2 font-light text-black">
+
+              <li
+                v-for="actividad in actividadesArtista(artista)"
+                :key="actividad"
+              >
+                • {{ actividad }}
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- SPOTIFY -->
+        <div
+          v-if="artista.spotifyEmbed"
+          class="h-full"
+        >
+          <iframe
+            :src="artista.spotifyEmbed"
+            width="100%"
+            height="400"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            class="rounded-xl min-h-100"
+          />
+        </div>
+
+      </div>
+
+      <!-- YOUTUBE -->
       <div
-        v-if="artista.spotifyEmbed"
-        class="h-full"
+        v-if="artista.youtubeEmbed"
+        class="mt-10 md:mt-20 aspect-video"
       >
         <iframe
-          :src="artista.spotifyEmbed"
+          :src="artista.youtubeEmbed"
+          :title="t('artistas.videoYoutube')"
           width="100%"
-          height="400"
+          height="100%"
           frameborder="0"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-          class="rounded-xl min-h-100"
+          allowfullscreen
+          class="rounded-xl w-full h-full"
         />
       </div>
 
-    </div>
-
-    <!-- YOUTUBE -->
-    <div
-      v-if="artista.youtubeEmbed"
-      class="mt-10 md:mt-20 aspect-video"
-    >
-      <iframe
-        :src="artista.youtubeEmbed"
-        :title="t('artistas.videoYoutube')"
-        width="100%"
-        height="100%"
-        frameborder="0"
-        allowfullscreen
-        class="rounded-xl w-full h-full"
-      />
-    </div>
-
-  </section>
+    </section>
+  </main>
 </template>

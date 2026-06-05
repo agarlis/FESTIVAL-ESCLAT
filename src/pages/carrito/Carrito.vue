@@ -77,7 +77,7 @@ const colorEntrada = (item: any) => {
 
     <section class="max-w-6xl mx-auto">
 
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black mb-6 md:mb-8 text-[#F22E2E]">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black mb-6 md:mb-8 text-black">
         {{ t('carrito.titulo') }}
       </h1>
 
@@ -168,7 +168,7 @@ const colorEntrada = (item: any) => {
 
               <button
                 @click="sumarCantidad(index)"
-                class="border border-[#F22E2E] text-[#F22E2E] px-3 py-1 hover:bg-[#F22E2E] hover:text-white transition"
+                class="border border-[#F22E2E] text-black px-3 py-1 hover:bg-[#F22E2E] hover:text-white transition"
               >
                 +
               </button>
@@ -181,7 +181,7 @@ const colorEntrada = (item: any) => {
 
             <div class="flex flex-col items-end gap-3">
 
-              <p class="text-right text-lg italic text-[#F22E2E]">
+              <p class="text-right text-lg italic text-black">
                 {{ formatearPrecio(parsePrecio(item.producto.precio) * item.cantidad) }}
               </p>
 
@@ -258,7 +258,7 @@ const colorEntrada = (item: any) => {
 
               </div>
 
-              <p class=" italic text-[#F22E2E]">
+              <p class=" italic text-black">
                 {{ formatearPrecio(parsePrecio(item.producto.precio) * item.cantidad) }}
               </p>
 

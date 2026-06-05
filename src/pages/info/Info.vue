@@ -27,7 +27,7 @@ import { t } from '@/components/data/idiomas'
 
         <AccordionItem
           value="normas"
-          class="w-full border border-[#F22E2E] px-4 md:px-6"
+          class="w-full bg-white border border-[#F22E2E] px-4 md:px-6"
         >
           <AccordionTrigger
             class="w-full italic text-base sm:text-lg md:text-xl font-extralight text-[#F22E2E] text-left"
@@ -44,7 +44,7 @@ import { t } from '@/components/data/idiomas'
 
         <AccordionItem
           value="compra"
-          class="w-full border border-[#F22E2E] px-4 md:px-6"
+          class="w-full bg-white border border-[#F22E2E] px-4 md:px-6"
         >
           <AccordionTrigger
             class="w-full italic text-base sm:text-lg md:text-xl font-extralight text-[#F22E2E] text-left"
@@ -61,7 +61,7 @@ import { t } from '@/components/data/idiomas'
 
         <AccordionItem
           value="recinto"
-          class="w-full border border-[#F22E2E] px-4 md:px-6"
+          class="w-full bg-white border border-[#F22E2E] px-4 md:px-6"
         >
           <AccordionTrigger
             class="w-full italic text-base sm:text-lg md:text-xl font-extralight text-[#F22E2E] text-left"
@@ -94,7 +94,7 @@ import { t } from '@/components/data/idiomas'
 
         <AccordionItem
           value="pago"
-          class="w-full border border-[#F22E2E] px-4 md:px-6"
+          class="w-full bg-white border border-[#F22E2E] px-4 md:px-6"
         >
           <AccordionTrigger
             class="w-full italic text-base sm:text-lg md:text-xl font-extralight text-[#F22E2E] text-left"
@@ -111,7 +111,7 @@ import { t } from '@/components/data/idiomas'
 
         <AccordionItem
           value="pulseras"
-          class="w-full border border-[#F22E2E] px-4 md:px-6"
+          class="w-full bg-white border border-[#F22E2E] px-4 md:px-6"
         >
           <AccordionTrigger
             class="w-full italic text-base sm:text-lg md:text-xl font-extralight text-[#F22E2E] text-left"

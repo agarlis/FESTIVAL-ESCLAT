@@ -84,13 +84,13 @@ import videoEsclat from '@/assets/videos/videoEsclat.mp4'
         <Input
           type="text"
           :placeholder="t('home.nombre')"
-          class="border-[#F22E2E] rounded-none h-12 md:h-14 italic shadow-none focus-visible:ring-[#F22E2E]"
+          class="bg-white border-[#F22E2E] rounded-none h-12 md:h-14 italic shadow-none focus-visible:ring-[#F22E2E]"
         />
 
         <Input
           type="email"
           :placeholder="t('home.correo')"
-          class="border-[#F22E2E] rounded-none h-12 md:h-14 italic shadow-none focus-visible:ring-[#F22E2E]"
+          class="bg-white border-[#F22E2E] rounded-none h-12 md:h-14 italic shadow-none focus-visible:ring-[#F22E2E]"
         />
 
         <div
@@ -99,7 +99,7 @@ import videoEsclat from '@/assets/videos/videoEsclat.mp4'
 
           <Checkbox
             id="privacidad"
-            class="border-[#F22E2E] data-[state=checked]:bg-[#F22E2E] data-[state=checked]:border-[#F22E2E] mt-1 sm:mt-0"
+            class="bg-white border-[#F22E2E] data-[state=checked]:bg-[#F22E2E] data-[state=checked]:border-[#F22E2E] mt-1 sm:mt-0"
           />
 
           <Label

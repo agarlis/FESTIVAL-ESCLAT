@@ -150,7 +150,7 @@ const añadirCarrito = () => {
       <!-- INFO -->
       <div>
 
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase leading-tight mb-6 md:mb-8 text-[#F22E2E]">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase leading-tight mb-6 md:mb-8 text-black">
           {{ t(`merchandising.productos.${producto.id}`) }}
         </h1>
 

@@ -73,7 +73,7 @@ const colorDia = computed(() => {
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12">
 
-            <div class="border border-black p-4 md:p-5">
+            <div class="bg-white border border-black p-4 md:p-5">
               <Clock3 class="w-5 h-5 mb-3" />
 
               <p class="text-xs uppercase opacity-60">
@@ -88,7 +88,7 @@ const colorDia = computed(() => {
               </p>
             </div>
 
-            <div class="border border-black p-4 md:p-5">
+            <div class="bg-white border border-black p-4 md:p-5">
               <MapPin class="w-5 h-5 mb-3" />
 
               <p class="text-xs uppercase opacity-60">
@@ -103,7 +103,7 @@ const colorDia = computed(() => {
               </p>
             </div>
 
-            <div class="border border-black p-4 md:p-5">
+            <div class="bg-white border border-black p-4 md:p-5">
               <CalendarDays class="w-5 h-5 mb-3" />
 
               <p class="text-xs uppercase opacity-60">
@@ -118,7 +118,7 @@ const colorDia = computed(() => {
               </p>
             </div>
 
-            <div class="border border-black p-4 md:p-5">
+            <div class="bg-white border border-black p-4 md:p-5">
               <Users class="w-5 h-5 mb-3" />
 
               <p class="text-xs uppercase opacity-60">
@@ -161,17 +161,6 @@ const colorDia = computed(() => {
             :alt="textoEvento(evento, 'titulo')"
             class="w-full h-full object-contain object-center"
           />
-
-          <!-- FALLBACK -->
-          <div
-            v-else
-            class="w-full h-full bg-black flex items-center justify-center"
-          >
-            <h2 class="text-white text-2xl sm:text-4xl md:text-5xl font-black uppercase text-center px-4 md:px-10">
-              {{ textoEvento(evento, 'titulo') }}
-            </h2>
-          </div>
-
         </div>
 
       </section>

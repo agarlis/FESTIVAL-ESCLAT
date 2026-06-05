@@ -61,7 +61,7 @@ const imagenHover = computed(
     </div>
 
     <h3
-      class="text-lg sm:text-xl font-black uppercase text-[#F22E2E] transition-all group-hover:underline leading-tight"
+      class="text-lg sm:text-xl font-black uppercase text-black transition-all group-hover:underline leading-tight"
     >
       {{ t(`merchandising.productos.${props.producto.id}`) }}
     </h3>

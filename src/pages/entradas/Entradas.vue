@@ -120,8 +120,8 @@ const comprarEntradaAccesible = () => {
           'bg-[#0669BF] text-white': entrada.id === 1,
           'bg-[#F22E2E] text-white': entrada.id === 2,
           'bg-[#F25EA3] text-white': entrada.id === 3,
-          'border border-[#F22E2E] text-[#F22E2E]': entrada.id === 4,
-          'border border-[#0669BF] text-[#0669BF]': entrada.id === 5,
+          'bg-white border border-[#F22E2E] text-[#F22E2E]': entrada.id === 4,
+          'bg-white border border-[#0669BF] text-[#0669BF]': entrada.id === 5,
         }"
       >
         <div>
@@ -223,13 +223,13 @@ const comprarEntradaAccesible = () => {
 
         <RouterLink
           to="/programa?filtro=taller"
-          class="inline-block mt-8 border border-[#F22E2E] text-[#F22E2E] px-8 py-4 uppercase font-bold hover:bg-[#F22E2E] hover:border-[#F22E2E] hover:text-white transition"
+          class="inline-block mt-8 bg-white border border-[#F22E2E] text-[#F22E2E] px-8 py-4 uppercase font-bold hover:bg-[#F22E2E] hover:border-[#F22E2E] hover:text-white transition"
         >
           {{ t('entradas.verActividades') }}
         </RouterLink>
       </div>
 
-      <div class="border border-[#F22E2E] p-6 md:p-8 flex flex-col justify-between">
+      <div class="bg-white border border-[#F22E2E] p-6 md:p-8 flex flex-col justify-between">
         <div>
           <p class="italic font-light text-sm">
             {{ t('entradas.contactoIntro') }}
